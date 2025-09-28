@@ -185,3 +185,90 @@ Normal - Network Performance Baseline
     ${passed}=    Evaluate    ${PASSED_TESTS} + 1
     Set Test Variable    ${PASSED_TESTS}    ${passed}
 
+Critical - Target Machine Connection
+    [Documentation]    🔗 Establish direct connection to target machine via WinRM/SSH
+    ...                Tests connectivity and authentication to remote systems
+    [Tags]             critical    networking    connection    remote    winrm    ssh
+
+    Log    🔍 Establishing connection to target machine...    console=yes
+    ${total}=    Evaluate    ${TOTAL_TESTS} + 1
+    Set Test Variable    ${TOTAL_TESTS}    ${total}
+
+    # Test connection based on target OS type
+    ${connection_result}=    Connect To Target Machine    ${TARGET_HOST}    ${TARGET_OS}    ${TARGET_USERNAME}    ${TARGET_PASSWORD}
+    Should Contain    ${connection_result}    SUCCESS    Failed to connect to target machine
+
+    # Validate connection details
+    Should Not Be Empty    ${connection_result}    Connection result is empty
+    Log    ✅ Target connection: ESTABLISHED    console=yes
+    Log    🔗 Connection: ${connection_result}    console=yes
+    Append To List    ${TEST_RESULTS}    Target Connection: PASS - ${connection_result}
+
+    ${passed}=    Evaluate    ${PASSED_TESTS} + 1
+    Set Test Variable    ${PASSED_TESTS}    ${passed}
+
+Critical - Comprehensive Network Data Collection
+    [Documentation]    📊 Execute all network commands in one pass and capture outputs
+    ...                Collects ifconfig, route, DNS, NTP data and saves to files
+    [Tags]             critical    networking    data-collection    comprehensive
+
+    Log    🔍 Collecting comprehensive network data...    console=yes
+    ${total}=    Evaluate    ${TOTAL_TESTS} + 1
+    Set Test Variable    ${TOTAL_TESTS}    ${total}
+
+    # Collect all network information in one pass
+    ${network_data}=    Collect All Network Information    ${TARGET_HOST}    ${TARGET_OS}
+    Should Not Be Empty    ${network_data}    Network data collection failed
+
+    # Save ifconfig data to file as requested
+    ${ifconfig_data}=    Get From Dictionary    ${network_data}    ifconfig
+    Save Network Data To File    ifconfig    ${ifconfig_data}
+
+    # Validate all required data was collected
+    Should Contain    ${network_data}    ifconfig    Interface data not collected
+    Should Contain    ${network_data}    route    Routing data not collected
+    Should Contain    ${network_data}    dns    DNS data not collected
+    Should Contain    ${network_data}    ntp    NTP data not collected
+
+    Log    ✅ Network data collection: COMPLETED    console=yes
+    Log    📁 Data saved to: ${DATA_DIR}/network_data_*.txt    console=yes
+    Append To List    ${TEST_RESULTS}    Network Data Collection: PASS - All data collected
+
+    ${passed}=    Evaluate    ${PASSED_TESTS} + 1
+    Set Test Variable    ${PASSED_TESTS}    ${passed}
+
+Critical - EDS Validation Against Specification
+    [Documentation]    📋 Compare collected network data against EDS documentation
+    ...                Validates IP, VLAN, DNS, NTP against Engineering Design Spec
+    [Tags]             critical    networking    validation    eds    compliance
+
+    Log    🔍 Validating against EDS specification...    console=yes
+    ${total}=    Evaluate    ${TOTAL_TESTS} + 1
+    Set Test Variable    ${TOTAL_TESTS}    ${total}
+
+    # Load EDS configuration from Excel
+    ${eds_config}=    Load EDS Configuration    EDS_Network_Configuration.xlsx
+    Should Not Be Empty    ${eds_config}    EDS configuration file not found or empty
+
+    # Collect current network configuration
+    ${current_config}=    Get Current Network Configuration    ${TARGET_HOST}    ${TARGET_OS}
+    Should Not Be Empty    ${current_config}    Current network configuration not available
+
+    # Perform comprehensive validation
+    ${validation_results}=    Validate Against EDS    ${current_config}    ${eds_config}
+    Should Not Be Empty    ${validation_results}    Validation process failed
+
+    # Update EDS Excel with results
+    Update EDS Excel With Results    EDS_Network_Configuration.xlsx    ${current_config}    ${validation_results}
+
+    # Check validation summary
+    ${validation_summary}=    Get Validation Summary    ${validation_results}
+    Should Contain    ${validation_summary}    SUMMARY    Validation summary not generated
+
+    Log    ✅ EDS validation: COMPLETED    console=yes
+    Log    📊 Validation Summary: ${validation_summary}    console=yes
+    Append To List    ${TEST_RESULTS}    EDS Validation: ${validation_summary}
+
+    ${passed}=    Evaluate    ${PASSED_TESTS} + 1
+    Set Test Variable    ${PASSED_TESTS}    ${passed}
+

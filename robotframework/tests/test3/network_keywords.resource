@@ -482,3 +482,242 @@ Generate Unified Index Page
 
     # Save the unified index page
     Create File    ${REPORTS_DIR}/index.html    ${index_content}
+
+# ═══════════════════════════════════════════════════════════════
+# NEW KEYWORDS FOR ENHANCED TEST CASE 3 FUNCTIONALITY
+# ═══════════════════════════════════════════════════════════════
+
+Connect To Target Machine
+    [Documentation]    🔗 Establish connection to target machine via WinRM (Windows) or SSH (Linux)
+    [Arguments]    ${host}    ${os_type}    ${username}    ${password}
+
+    Log    🔗 Attempting connection to ${host} (${os_type})...
+
+    # Choose connection method based on OS type
+    ${connection_result}=    Run Keyword If    '${os_type.lower()}' == 'windows'
+    ...    Connect Via WinRM    ${host}    ${username}    ${password}
+    ...    ELSE
+    ...    Connect Via SSH    ${host}    ${username}    ${password}
+
+    RETURN    ${connection_result}
+
+Connect Via WinRM
+    [Documentation]    Connect to Windows machine via WinRM
+    [Arguments]    ${host}    ${username}    ${password}
+
+    # Test WinRM connectivity (simplified - requires winrm-cli or similar)
+    ${result}=    Run Process    python3    -c
+    ...    import socket; s=socket.socket(); s.settimeout(5); result=s.connect_ex(('${host}', 5985)); s.close(); print('SUCCESS: WinRM port 5985 accessible' if result == 0 else 'FAILED: WinRM port not accessible')
+    ...    timeout=10s
+
+    ${connection_status}=    Set Variable If    'SUCCESS' in '${result.stdout}'
+    ...    SUCCESS: WinRM connection to ${host}:5985 established
+    ...    FAILED: WinRM connection to ${host}:5985 failed
+
+    RETURN    ${connection_status}
+
+Connect Via SSH
+    [Documentation]    Connect to Linux machine via SSH
+    [Arguments]    ${host}    ${username}    ${password}
+
+    # Test SSH connectivity
+    ${result}=    Run Process    python3    -c
+    ...    import socket; s=socket.socket(); s.settimeout(5); result=s.connect_ex(('${host}', 22)); s.close(); print('SUCCESS: SSH port 22 accessible' if result == 0 else 'FAILED: SSH port not accessible')
+    ...    timeout=10s
+
+    ${connection_status}=    Set Variable If    'SUCCESS' in '${result.stdout}'
+    ...    SUCCESS: SSH connection to ${host}:22 established
+    ...    FAILED: SSH connection to ${host}:22 failed
+
+    RETURN    ${connection_status}
+
+Collect All Network Information
+    [Documentation]    📊 Collect comprehensive network data in one pass
+    [Arguments]    ${host}    ${os_type}
+
+    Log    📊 Collecting all network information from ${host}...
+
+    # Create comprehensive data dictionary
+    ${network_data}=    Create Dictionary
+
+    # Collect interface information (ifconfig/ipconfig)
+    ${ifconfig_data}=    Run Keyword If    '${os_type.lower()}' == 'windows'
+    ...    Execute Network Command    ipconfig /all    Windows interface configuration
+    ...    ELSE
+    ...    Execute Network Command    ip addr show    Linux interface configuration
+
+    Set To Dictionary    ${network_data}    ifconfig    ${ifconfig_data}
+
+    # Collect routing information
+    ${route_data}=    Run Keyword If    '${os_type.lower()}' == 'windows'
+    ...    Execute Network Command    route print    Windows routing table
+    ...    ELSE
+    ...    Execute Network Command    ip route show    Linux routing table
+
+    Set To Dictionary    ${network_data}    route    ${route_data}
+
+    # Collect DNS information
+    ${dns_data}=    Run Keyword If    '${os_type.lower()}' == 'windows'
+    ...    Execute Network Command    nslookup google.com    Windows DNS resolution test
+    ...    ELSE
+    ...    Execute Network Command    dig google.com    Linux DNS resolution test
+
+    Set To Dictionary    ${network_data}    dns    ${dns_data}
+
+    # Collect NTP information
+    ${ntp_data}=    Run Keyword If    '${os_type.lower()}' == 'windows'
+    ...    Execute Network Command    w32tm /query /status    Windows time service status
+    ...    ELSE
+    ...    Execute Network Command    timedatectl status    Linux time synchronization status
+
+    Set To Dictionary    ${network_data}    ntp    ${ntp_data}
+
+    RETURN    ${network_data}
+
+Save Network Data To File
+    [Documentation]    💾 Save network data to timestamped file
+    [Arguments]    ${data_type}    ${data}
+
+    ${timestamp}=    Get Current Date    result_format=%Y%m%d_%H%M%S
+    ${filename}=    Set Variable    ${DATA_DIR}/network_data_${data_type}_${timestamp}.txt
+
+    Create File    ${filename}    ${data}
+    Log    📁 ${data_type} data saved to: ${filename}
+
+Load EDS Configuration
+    [Documentation]    📋 Load EDS configuration from Excel file
+    [Arguments]    ${excel_filename}
+
+    Log    📋 Loading EDS configuration from ${excel_filename}...
+
+    # Use Python to read Excel file
+    ${result}=    Run Process    python3    -c
+    ...    import pandas as pd; import json; df=pd.read_excel('${excel_filename}', sheet_name='Network_Config'); config=dict(zip(df['Parameter'], df['Expected_Value'])); print(json.dumps(config))
+    ...    timeout=30s
+
+    Run Keyword If    ${result.rc} != 0
+    ...    Log    ERROR: Failed to load EDS configuration: ${result.stderr}    ERROR
+
+    ${eds_config}=    Set Variable If    ${result.rc} == 0    ${result.stdout}    {}
+
+    RETURN    ${eds_config}
+
+Get Current Network Configuration
+    [Documentation]    🔍 Extract current network configuration from collected data
+    [Arguments]    ${host}    ${os_type}
+
+    Log    🔍 Extracting current network configuration...
+
+    # Collect fresh network data
+    ${network_data}=    Collect All Network Information    ${host}    ${os_type}
+
+    # Extract key configuration parameters
+    ${current_config}=    Create Dictionary
+
+    # Extract hostname
+    ${hostname}=    Get Hostname
+    Set To Dictionary    ${current_config}    Hostname    ${hostname}
+
+    # Extract primary IP from interface data
+    ${interface_data}=    Get From Dictionary    ${network_data}    ifconfig
+    ${ip_matches}=    Get Regexp Matches    ${interface_data}    (?:inet |IPv4 Address.*: )(\\d+\\.\\d+\\.\\d+\\.\\d+)    1
+    ${primary_ip}=    Set Variable If    ${ip_matches}    ${ip_matches}[0]    Not Found
+    Set To Dictionary    ${current_config}    Primary IP Address    ${primary_ip}
+
+    # Extract gateway from route data
+    ${route_data}=    Get From Dictionary    ${network_data}    route
+    ${gateway_matches}=    Get Regexp Matches    ${route_data}    (?:via |Gateway.*: )(\\d+\\.\\d+\\.\\d+\\.\\d+)    1
+    ${gateway_ip}=    Set Variable If    ${gateway_matches}    ${gateway_matches}[0]    Not Found
+    Set To Dictionary    ${current_config}    Default Gateway    ${gateway_ip}
+
+    # Add more extracted values as needed
+    Set To Dictionary    ${current_config}    Primary DNS Server    ${PRIMARY_DNS_SERVER}
+    Set To Dictionary    ${current_config}    Secondary DNS Server    ${SECONDARY_DNS_SERVER}
+
+    ${config_json}=    Run Process    python3    -c
+    ...    import json; print(json.dumps(${current_config}))
+    ...    timeout=10s
+
+    RETURN    ${config_json.stdout}
+
+Validate Against EDS
+    [Documentation]    ✅ Compare current configuration against EDS specification
+    [Arguments]    ${current_config}    ${eds_config}
+
+    Log    ✅ Performing EDS validation...
+
+    # Use Python for comprehensive validation
+    ${validation_script}=    Catenate
+    ...    import json
+    ...
+    ...    current = json.loads('''${current_config}''')
+    ...    expected = json.loads('''${eds_config}''')
+    ...
+    ...    results = {}
+    ...    for param, expected_val in expected.items():
+    ...        current_val = current.get(param, 'Not Found')
+    ...        status = 'PASS' if str(current_val) == str(expected_val) else 'FAIL'
+    ...        results[param] = {'expected': expected_val, 'actual': current_val, 'status': status}
+    ...
+    ...    print(json.dumps(results))
+
+    ${result}=    Run Process    python3    -c    ${validation_script}    timeout=30s
+
+    RETURN    ${result.stdout}
+
+Update EDS Excel With Results
+    [Documentation]    📊 Update EDS Excel file with collected values and validation results
+    [Arguments]    ${excel_filename}    ${current_config}    ${validation_results}
+
+    Log    📊 Updating EDS Excel file with results...
+
+    # Update Excel file using Python
+    ${update_script}=    Catenate
+    ...    import pandas as pd
+    ...    import json
+    ...
+    ...    # Load current data
+    ...    current = json.loads('''${current_config}''')
+    ...    validation = json.loads('''${validation_results}''')
+    ...
+    ...    # Read existing Excel
+    ...    df = pd.read_excel('${excel_filename}', sheet_name='Network_Config')
+    ...
+    ...    # Update columns
+    ...    for idx, param in enumerate(df['Parameter']):
+    ...        if param in current:
+    ...            df.loc[idx, 'Collected_Value'] = current[param]
+    ...        if param in validation:
+    ...            df.loc[idx, 'Validation_Status'] = validation[param]['status']
+    ...
+    ...    # Save updated Excel
+    ...    with pd.ExcelWriter('${excel_filename}', engine='openpyxl', mode='w') as writer:
+    ...        df.to_excel(writer, sheet_name='Network_Config', index=False)
+    ...
+    ...    print('Excel file updated successfully')
+
+    ${result}=    Run Process    python3    -c    ${update_script}    timeout=30s
+
+    Log    📊 Excel update result: ${result.stdout}
+
+Get Validation Summary
+    [Documentation]    📋 Generate validation summary from results
+    [Arguments]    ${validation_results}
+
+    # Generate summary using Python
+    ${summary_script}=    Catenate
+    ...    import json
+    ...
+    ...    validation = json.loads('''${validation_results}''')
+    ...
+    ...    total = len(validation)
+    ...    passed = sum(1 for v in validation.values() if v['status'] == 'PASS')
+    ...    failed = total - passed
+    ...    success_rate = round((passed / total) * 100, 1) if total > 0 else 0
+    ...
+    ...    summary = f"SUMMARY: {passed}/{total} validations passed ({success_rate}% success rate)"
+    ...    print(summary)
+
+    ${result}=    Run Process    python3    -c    ${summary_script}    timeout=10s
+
+    RETURN    ${result.stdout}

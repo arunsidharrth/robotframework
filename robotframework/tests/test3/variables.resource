@@ -15,6 +15,12 @@ ${TEST_DOMAINS}         google.com,github.com,stackoverflow.com
 ${PING_COUNT}           5
 ${TIMEOUT_SECONDS}      15
 
+# Target Machine Configuration
+${TARGET_HOST}          192.168.1.100
+${TARGET_OS}            windows
+${TARGET_USERNAME}      testuser
+${TARGET_PASSWORD}      testpass123
+
 # Test Execution Tracking (initialized values)
 ${TOTAL_TESTS}          0
 ${PASSED_TESTS}         0
