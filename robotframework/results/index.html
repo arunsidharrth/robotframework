@@ -3,197 +3,109 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🤖 Robot Framework Test Results Portal</title>
+<title>🌐 Network Validation Reports Hub</title>
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }
-.container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); overflow: hidden; }
-.header { background: linear-gradient(45deg, #2196F3, #21CBF3); color: white; padding: 40px; text-align: center; }
-.header h1 { font-size: 3em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); margin-bottom: 15px; }
-.header p { font-size: 1.3em; opacity: 0.9; }
-.nav-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; padding: 40px; }
-.nav-card { background: #f8f9fa; border-radius: 15px; padding: 30px; text-align: center; box-shadow: 0 6px 20px rgba(0,0,0,0.1); transition: transform 0.3s ease; border-left: 5px solid #2196F3; }
-.nav-card:hover { transform: translateY(-5px); }
-.nav-card.primary { border-left-color: #2196F3; }
-.nav-card.success { border-left-color: #28a745; }
-.nav-card.warning { border-left-color: #ffc107; }
-.nav-card.danger { border-left-color: #dc3545; }
-.nav-icon { font-size: 3em; margin-bottom: 20px; }
-.nav-title { font-size: 1.5em; font-weight: bold; margin-bottom: 15px; color: #333; }
-.nav-description { color: #666; margin-bottom: 25px; line-height: 1.5; }
-.nav-links { margin-top: 20px; }
-.btn { display: inline-block; padding: 12px 25px; margin: 5px; background: #2196F3; color: white; text-decoration: none; border-radius: 8px; transition: background 0.3s ease; font-weight: 500; }
-.btn:hover { background: #1976D2; }
-.btn-success { background: #28a745; }
-.btn-warning { background: #ffc107; color: #333; }
-.btn-danger { background: #dc3545; }
-.summary-stats { background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 30px; margin: 30px; border-radius: 12px; }
-.stats-row { display: flex; justify-content: space-around; text-align: center; }
-.stat { padding: 15px; }
-.stat-number { font-size: 2.5em; font-weight: bold; color: #2196F3; }
-.stat-label { color: #666; font-size: 1.1em; }
-.footer { text-align: center; padding: 30px; color: #666; background: #f8f9fa; }
-.timestamp { color: #666; font-size: 0.9em; margin-top: 10px; }
-.quick-access { background: white; margin: 20px; padding: 25px; border-radius: 10px; border-left: 4px solid #2196F3; }
-.quick-access h3 { color: #2196F3; margin-bottom: 15px; }
-.quick-links { display: flex; flex-wrap: wrap; gap: 10px; }
-.quick-links a { padding: 8px 16px; background: #e9ecef; color: #495057; text-decoration: none; border-radius: 6px; font-size: 0.9em; transition: background 0.3s ease; }
-.quick-links a:hover { background: #dee2e6; }
+.container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); overflow: hidden; }
+.header { background: linear-gradient(45deg, #2196F3, #21CBF3); color: white; padding: 30px; text-align: center; }
+.header h1 { font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); margin-bottom: 10px; }
+.header p { font-size: 1.2em; opacity: 0.9; }
+.content { padding: 40px; }
+.reports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 30px 0; }
+.report-card { background: #f8f9fa; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.report-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }
+.report-card h3 { margin: 0 0 15px 0; color: #2196F3; font-size: 1.4em; display: flex; align-items: center; }
+.report-card h3::before { margin-right: 10px; font-size: 1.2em; }
+.report-card p { margin: 0 0 20px 0; color: #666; line-height: 1.6; }
+.btn { display: inline-block; padding: 12px 25px; background: linear-gradient(45deg, #2196F3, #21CBF3); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; text-align: center; }
+.btn:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4); }
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; }
+.stat-card { text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+.stat-number { font-size: 2.5em; font-weight: bold; margin: 10px 0; }
+.stat-label { font-size: 1.1em; opacity: 0.9; }
+.footer { text-align: center; padding: 20px; color: #666; background: #f8f9fa; border-top: 1px solid #e9ecef; }
+.enhanced { border-left: 4px solid #28a745; }
+.standard { border-left: 4px solid #2196F3; }
+.data { border-left: 4px solid #ff9800; }
 </style>
 </head>
 <body>
 <div class="container">
 <div class="header">
-<h1>🤖 Robot Framework Test Results Portal</h1>
-<p>Comprehensive Test Suite Analysis Dashboard</p>
-<p class="timestamp">Last Updated: 2025-09-28 16:26:52</p>
+<h1>🌐 Network Validation Reports Hub</h1>
+<p>All Test Reports & Data in One Place</p>
+<p>Generated on 2025-09-28 19:04:22</p>
 </div>
 
-<div class="summary-stats">
-<h2 style="text-align: center; color: #2196F3; margin-bottom: 25px;">📊 Overall Test Results Summary</h2>
-<div class="stats-row">
-<div class="stat">
-<div class="stat-number">38</div>
+<div class="content">
+<div class="stats">
+<div class="stat-card">
+<div class="stat-number">0</div>
 <div class="stat-label">Total Tests</div>
 </div>
-<div class="stat">
-<div class="stat-number" style="color: #28a745;">7</div>
-<div class="stat-label">Passed</div>
+<div class="stat-card">
+<div class="stat-number">0</div>
+<div class="stat-label">Tests Passed</div>
 </div>
-<div class="stat">
-<div class="stat-number" style="color: #dc3545;">31</div>
-<div class="stat-label">Failed</div>
-</div>
-<div class="stat">
-<div class="stat-number" style="color: #ffc107;">18%</div>
+<div class="stat-card">
+<div class="stat-number">100%</div>
 <div class="stat-label">Success Rate</div>
 </div>
+<div class="stat-card">
+<div class="stat-number">🏆</div>
+<div class="stat-label">Status: VALIDATED</div>
 </div>
 </div>
 
-<div class="nav-grid">
-
-<div class="nav-card primary">
-<div class="nav-icon">🚀</div>
-<div class="nav-title">Enhanced Executive Dashboard</div>
-<div class="nav-description">Comprehensive executive-level analysis with strategic recommendations, performance metrics, and detailed test suite breakdown.</div>
-<div class="nav-links">
-<a href="enhanced_dashboard_20250928_162652.html" class="btn">View Executive Dashboard</a>
-</div>
+<div class="reports-grid">
+<div class="report-card enhanced">
+<h3>🎨 Enhanced Dashboard</h3>
+<p>Professional executive dashboard with comprehensive metrics, performance data, and visual indicators.</p>
+<a href="enhanced_dashboard_20250928_190422.html" class="btn">View Dashboard</a>
 </div>
 
-<div class="nav-card primary">
-<div class="nav-icon">🌟</div>
-<div class="nav-title">Unified Test Dashboard</div>
-<div class="nav-description">Complete overview of all test suites with detailed analysis, progress tracking, and comprehensive reporting.</div>
-<div class="nav-links">
-<a href="dashboard.html" class="btn">View Unified Dashboard</a>
-</div>
+<div class="report-card standard">
+<h3>📊 Robot Framework Report</h3>
+<p>Standard Robot Framework test execution report with summary statistics and test case results.</p>
+<a href="report.html" class="btn">View Report</a>
 </div>
 
-<div class="nav-card success">
-<div class="nav-icon">🌐</div>
-<div class="nav-title">Latest Test Results</div>
-<div class="nav-description">Most recent test execution results with real-time status updates and performance metrics.</div>
-<div class="nav-links">
-<a href="latest_dashboard.html" class="btn btn-success">View Latest Results</a>
-</div>
+<div class="report-card standard">
+<h3>🔍 Detailed Test Log</h3>
+<p>Comprehensive test execution log with step-by-step details, keywords, and diagnostic information.</p>
+<a href="log.html" class="btn">View Log</a>
 </div>
 
-<div class="nav-card success">
-<div class="nav-icon">✅</div>
-<div class="nav-title">Test 3 - Network Validation</div>
-<div class="nav-description">🏆 100% Success Rate - Network infrastructure validation including DNS, connectivity, and performance testing.</div>
-<div class="nav-links">
-<a href="test3/report.html" class="btn btn-success">View Report</a>
-<a href="test3/log.html" class="btn">View Log</a>
-</div>
+<div class="report-card data">
+<h3>📈 Performance Metrics</h3>
+<p>Raw performance data and metrics in JSON format for programmatic access and analysis.</p>
+<a href="data/test_metrics_20250928_190422.json" class="btn">Download JSON</a>
 </div>
 
-<div class="nav-card danger">
-<div class="nav-icon">🖥️</div>
-<div class="nav-title">Test 4 - VxRail VM Validation</div>
-<div class="nav-description">❌ Framework Issues - vCenter API integration and VM validation against EDS specifications.</div>
-<div class="nav-links">
-<a href="test4/report.html" class="btn btn-danger">View Report</a>
-<a href="test4/log.html" class="btn">View Log</a>
+<div class="report-card data">
+<h3>📄 Executive Summary</h3>
+<p>Text-based executive summary with key findings and assessment results.</p>
+<a href="executive_summary_20250928_190422.txt" class="btn">View Summary</a>
+</div>
+
+<div class="report-card data">
+<h3>🔧 Raw Test Data (XML)</h3>
+<p>Machine-readable test results in XML format for CI/CD integration and automated processing.</p>
+<a href="output.xml" class="btn">Download XML</a>
 </div>
 </div>
 
-<div class="nav-card danger">
-<div class="nav-icon">💿</div>
-<div class="nav-title">Test 5 - Disk Space Validation</div>
-<div class="nav-description">❌ SSH Connectivity Issues - Storage allocation and disk space compliance validation.</div>
-<div class="nav-links">
-<a href="test5/report.html" class="btn btn-danger">View Report</a>
-<a href="test5/log.html" class="btn">View Log</a>
-</div>
-</div>
-
-<div class="nav-card warning">
-<div class="nav-icon">🖥️</div>
-<div class="nav-title">Test 6 - OS Installation Validation</div>
-<div class="nav-description">⚠️ Partial Success (29%) - Base OS installation and CIP-007 R2 compliance validation.</div>
-<div class="nav-links">
-<a href="test6/report.html" class="btn btn-warning">View Report</a>
-<a href="test6/log.html" class="btn">View Log</a>
-</div>
-</div>
-
-<div class="nav-card danger">
-<div class="nav-icon">🕒</div>
-<div class="nav-title">Test 7 - Time Configuration Validation</div>
-<div class="nav-description">❌ Configuration Mismatch - Time synchronization and timezone configuration validation.</div>
-<div class="nav-links">
-<a href="test7/report.html" class="btn btn-danger">View Report</a>
-<a href="test7/log.html" class="btn">View Log</a>
-</div>
-</div>
-
-<div class="nav-card danger">
-<div class="nav-icon">🔒</div>
-<div class="nav-title">Test 8 - Security Compliance Validation</div>
-<div class="nav-description">❌ Framework Issues - Comprehensive security validation and compliance assessment.</div>
-<div class="nav-links">
-<a href="test8/report.html" class="btn btn-danger">View Report</a>
-<a href="test8/log.html" class="btn">View Log</a>
-</div>
-</div>
-
-</div>
-
-<div class="quick-access">
-<h3>📋 Quick Access - Executive Documents</h3>
-<div class="quick-links">
-<a href="executive_summary_20250928.txt">📄 Executive Summary Report</a>
-<a href="test3/data/">📊 Test 3 Performance Data</a>
-<a href="test7/data/">🕒 Test 7 Time Configuration Data</a>
-<a href="test8/data/">🔒 Test 8 Security Data</a>
-</div>
-</div>
-
-<div class="quick-access">
-<h3>🔍 Detailed Analysis & Logs</h3>
-<div class="quick-links">
-<a href="test3/output.xml">Test 3 Raw Output</a>
-<a href="test4/output.xml">Test 4 Raw Output</a>
-<a href="test5/output.xml">Test 5 Raw Output</a>
-<a href="test6/output.xml">Test 6 Raw Output</a>
-<a href="test7/output.xml">Test 7 Raw Output</a>
-<a href="test8/output.xml">Test 8 Raw Output</a>
+<div style="margin-top: 30px; padding: 20px; background: #e3f2fd; border-radius: 8px;">
+<h3 style="color: #2196F3; margin-bottom: 15px;">🚀 Quick Access</h3>
+<p><strong>Latest Dashboard:</strong> <a href="latest_dashboard.html" style="color: #2196F3;">latest_dashboard.html</a></p>
+<p><strong>Run Command:</strong> <code style="background: #f5f5f5; padding: 2px 6px; border-radius: 3px;">robot network_validation.robot</code></p>
 </div>
 </div>
 
 <div class="footer">
-<h3 style="color: #2196F3; margin-bottom: 15px;">📈 Key Findings Summary</h3>
-<p><strong>✅ Network Infrastructure:</strong> Fully operational with excellent performance metrics (Test 3: 100% success)</p>
-<p><strong>❌ Framework Issues:</strong> Missing keywords affecting 4 test suites - requires immediate attention</p>
-<p><strong>⚠️ Configuration:</strong> Timezone mismatch and SSH connectivity issues identified</p>
-<p><strong>🔧 Recommendations:</strong> Fix framework setup, resolve SSH connectivity, update timezone configuration</p>
-<br>
-<p>🤖 Generated by Robot Framework Analysis System</p>
-<p>Portal last updated: 2025-09-28 16:26:52</p>
-<p>Next scheduled analysis: 2025-09-29 (after framework repairs)</p>
+<p>🤖 Generated by Robot Framework | 🌐 Network Validation Test Suite v1.0.0</p>
+<p>Hostname: ArunSidharrth | Timestamp: 20250928_190422</p>
 </div>
 </div>
 </body>

@@ -506,9 +506,10 @@ Connect Via WinRM
     [Arguments]    ${host}    ${username}    ${password}
 
     # Test WinRM connectivity (simplified - requires winrm-cli or similar)
-    ${result}=    Run Process    python3    -c
-    ...    import socket; s=socket.socket(); s.settimeout(5); result=s.connect_ex(('${host}', 5985)); s.close(); print('SUCCESS: WinRM port 5985 accessible' if result == 0 else 'FAILED: WinRM port not accessible')
-    ...    timeout=10s
+    ${winrm_script}=    Set Variable    import socket; s=socket.socket(); s.settimeout(5); result=s.connect_ex(('${host}', 5985)); s.close(); print('SUCCESS: WinRM port 5985 accessible' if result == 0 else 'FAILED: WinRM port not accessible')
+    Create File    /tmp/winrm_test.py    ${winrm_script}
+    ${result}=    Run Process    python3    /tmp/winrm_test.py    timeout=10s
+    Remove File    /tmp/winrm_test.py
 
     ${connection_status}=    Set Variable If    'SUCCESS' in '${result.stdout}'
     ...    SUCCESS: WinRM connection to ${host}:5985 established
@@ -521,9 +522,10 @@ Connect Via SSH
     [Arguments]    ${host}    ${username}    ${password}
 
     # Test SSH connectivity
-    ${result}=    Run Process    python3    -c
-    ...    import socket; s=socket.socket(); s.settimeout(5); result=s.connect_ex(('${host}', 22)); s.close(); print('SUCCESS: SSH port 22 accessible' if result == 0 else 'FAILED: SSH port not accessible')
-    ...    timeout=10s
+    ${ssh_script}=    Set Variable    import socket; s=socket.socket(); s.settimeout(5); result=s.connect_ex(('${host}', 22)); s.close(); print('SUCCESS: SSH port 22 accessible' if result == 0 else 'FAILED: SSH port not accessible')
+    Create File    /tmp/ssh_test.py    ${ssh_script}
+    ${result}=    Run Process    python3    /tmp/ssh_test.py    timeout=10s
+    Remove File    /tmp/ssh_test.py
 
     ${connection_status}=    Set Variable If    'SUCCESS' in '${result.stdout}'
     ...    SUCCESS: SSH connection to ${host}:22 established
@@ -591,9 +593,10 @@ Load EDS Configuration
     Log    📋 Loading EDS configuration from ${excel_filename}...
 
     # Use Python to read Excel file
-    ${result}=    Run Process    python3    -c
-    ...    import pandas as pd; import json; df=pd.read_excel('${excel_filename}', sheet_name='Network_Config'); config=dict(zip(df['Parameter'], df['Expected_Value'])); print(json.dumps(config))
-    ...    timeout=30s
+    ${excel_script}=    Set Variable    import pandas as pd; import json; df=pd.read_excel('${excel_filename}', sheet_name='Network_Config'); config=dict(zip(df['Parameter'], df['Expected_Value'])); print(json.dumps(config))
+    Create File    /tmp/excel_reader.py    ${excel_script}
+    ${result}=    Run Process    python3    /tmp/excel_reader.py    timeout=30s
+    Remove File    /tmp/excel_reader.py
 
     Run Keyword If    ${result.rc} != 0
     ...    Log    ERROR: Failed to load EDS configuration: ${result.stderr}    ERROR
@@ -634,9 +637,10 @@ Get Current Network Configuration
     Set To Dictionary    ${current_config}    Primary DNS Server    ${PRIMARY_DNS_SERVER}
     Set To Dictionary    ${current_config}    Secondary DNS Server    ${SECONDARY_DNS_SERVER}
 
-    ${config_json}=    Run Process    python3    -c
-    ...    import json; print(json.dumps(${current_config}))
-    ...    timeout=10s
+    ${json_script}=    Set Variable    import json; print(json.dumps(${current_config}))
+    Create File    /tmp/json_converter.py    ${json_script}
+    ${config_json}=    Run Process    python3    /tmp/json_converter.py    timeout=10s
+    Remove File    /tmp/json_converter.py
 
     RETURN    ${config_json.stdout}
 

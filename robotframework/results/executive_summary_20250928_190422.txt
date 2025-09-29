@@ -2,14 +2,14 @@
 🌐 NETWORK VALIDATION EXECUTIVE SUMMARY - TEST-3
 ═══════════════════════════════════════════════════════════════
 📋 Suite: Network Validation Test Suite - Test-3
-📅 Start: 2025-09-28 14:10:20
-📅 End: 2025-09-28 14:10:43
-⏱️ Duration: 23.0 seconds
+📅 Start: 2025-09-28 19:03:54
+📅 End: 2025-09-28 19:04:22
+⏱️ Duration: 28.0 seconds
 📊 Success Rate: 0% (0/0)
 ✅ Passed: 0
 ❌ Failed: 0
 🎯 Test Quality: EXCELLENT (All critical tests passed)
-🔍 Test Results: ['Interface Validation: PASS - Primary IP: 127.0.0.1', 'DNS Resolution: PASS - Multiple domains resolved', 'Internet Connectivity: PASS - Latency: 32.755ms avg', 'Routing Analysis: PASS - Gateway: 172.30.16.1, Routes: 2', 'Performance Baseline: PASS - Avg: 30.120ms, Loss: 0%']
-📈 Performance Metrics: ['Primary DNS Latency: 32.755ms', 'Secondary DNS Latency: 23.991ms', 'Minimum Latency: 25.988ms', 'Maximum Latency: 37.905ms', 'Average Latency: 30.120ms', 'Packet Loss: 0%']
+🔍 Test Results: ['Interface Validation: PASS - Primary IP: 127.0.0.1', 'DNS Resolution: PASS - Multiple domains resolved', 'Internet Connectivity: PASS - Latency: 35.610ms avg', 'Routing Analysis: PASS - Gateway: 172.27.176.1, Routes: 2', 'Performance Baseline: PASS - Avg: 100.170ms, Loss: 0%', 'Network Data Collection: PASS - All data collected']
+📈 Performance Metrics: ['Primary DNS Latency: 35.610ms', 'Secondary DNS Latency: 33.861ms', 'Minimum Latency: 23.275ms', 'Maximum Latency: 379.956ms', 'Average Latency: 100.170ms', 'Packet Loss: 0%']
 🏆 Overall Assessment: NETWORK INFRASTRUCTURE VALIDATED
 ═══════════════════════════════════════════════════════════════

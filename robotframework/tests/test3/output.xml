@@ -1,0 +1,3771 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.12.3 on linux)" generated="2025-09-28T19:03:54.277224" rpa="false" schemaversion="5">
+<suite id="s1" name="Test3" source="/mnt/c/Users/write/robot/robotframework/tests/test3">
+<suite id="s1-s1" name="Network Validation" source="/mnt/c/Users/write/robot/robotframework/tests/test3/network_validation.robot">
+<kw name="Initialize Test Environment" owner="network_keywords" type="SETUP">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-28T19:03:54.355683" level="INFO">${start_time} = 2025-09-28 19:03:54</msg>
+<var>${start_time}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.355430" elapsed="0.000287"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.356459" level="INFO">${TEST_START_TIME} = 2025-09-28 19:03:54</msg>
+<arg>${TEST_START_TIME}</arg>
+<arg>${start_time}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.355820" elapsed="0.000675"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-09-28T19:03:54.357471" level="INFO" html="true">Directory '&lt;a href="file:///mnt/c/Users/write/robot/robotframework/results"&gt;/mnt/c/Users/write/robot/robotframework/results&lt;/a&gt;' already exists.</msg>
+<arg>${REPORTS_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.356593" elapsed="0.000960"/>
+</kw>
+<kw name="Create Directory" owner="OperatingSystem">
+<msg time="2025-09-28T19:03:54.359469" level="INFO" html="true">Directory '&lt;a href="file:///mnt/c/Users/write/robot/robotframework/results/test3/data"&gt;/mnt/c/Users/write/robot/robotframework/results/test3/data&lt;/a&gt;' already exists.</msg>
+<arg>${DATA_DIR}</arg>
+<doc>Creates the specified directory.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.357690" elapsed="0.001819"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.359704" level="INFO">${TOTAL_TESTS} = 0</msg>
+<arg>${TOTAL_TESTS}</arg>
+<arg>0</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.359585" elapsed="0.000145"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.359880" level="INFO">${PASSED_TESTS} = 0</msg>
+<arg>${PASSED_TESTS}</arg>
+<arg>0</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.359797" elapsed="0.000105"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.360341" level="INFO">@{TEST_RESULTS} = [ ]</msg>
+<arg>@{TEST_RESULTS}</arg>
+<arg>@{EMPTY}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.359967" elapsed="0.000405"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.360812" level="INFO">@{PERFORMANCE_METRICS} = [ ]</msg>
+<arg>@{PERFORMANCE_METRICS}</arg>
+<arg>@{EMPTY}</arg>
+<doc>Makes a variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.360442" elapsed="0.000414"/>
+</kw>
+<kw name="Get Hostname" owner="network_keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:03:54.361239" level="INFO">Starting process:
+hostname</msg>
+<msg time="2025-09-28T19:03:54.362006" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:03:54.464109" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:03:54.464309" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>hostname</arg>
+<arg>timeout=5s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.361105" elapsed="0.103231"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.465674" level="INFO">${hostname} = ArunSidharrth</msg>
+<var>${hostname}</var>
+<arg>${result.rc} == 0</arg>
+<arg>${result.stdout.strip()}</arg>
+<arg>Unknown</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.464551" elapsed="0.001146"/>
+</kw>
+<return>
+<value>${hostname}</value>
+<status status="PASS" start="2025-09-28T19:03:54.465749" elapsed="0.000053"/>
+</return>
+<msg time="2025-09-28T19:03:54.465918" level="INFO">${hostname} = ArunSidharrth</msg>
+<var>${hostname}</var>
+<status status="PASS" start="2025-09-28T19:03:54.360982" elapsed="0.104954"/>
+</kw>
+<kw name="Get OS Information" owner="network_keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:03:54.466456" level="INFO">Starting process:
+uname -a</msg>
+<msg time="2025-09-28T19:03:54.467278" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:03:54.568567" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:03:54.568856" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>uname</arg>
+<arg>-a</arg>
+<arg>timeout=5s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.466283" elapsed="0.102623"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.570216" level="INFO">${os_info} = Linux ArunSidharrth 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux</msg>
+<var>${os_info}</var>
+<arg>${result.rc} == 0</arg>
+<arg>${result.stdout.strip()}</arg>
+<arg>Unknown</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.569090" elapsed="0.001150"/>
+</kw>
+<return>
+<value>${os_info}</value>
+<status status="PASS" start="2025-09-28T19:03:54.570294" elapsed="0.000051"/>
+</return>
+<msg time="2025-09-28T19:03:54.570471" level="INFO">${os_info} = Linux ArunSidharrth 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux</msg>
+<var>${os_info}</var>
+<status status="PASS" start="2025-09-28T19:03:54.466113" elapsed="0.104376"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n🚀 ===================================================</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.570581" elapsed="0.000205"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🌐 NETWORK VALIDATION TEST SUITE - TEST-3</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.570876" elapsed="0.000091"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>⚡ ===================================================</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.571043" elapsed="0.000119"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📅 Start Time: ${start_time}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.571249" elapsed="0.000797"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🖥️ Hostname: ${hostname}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.572158" elapsed="0.000153"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>💻 OS Info: ${os_info}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.572394" elapsed="0.000174"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📊 Reports: ${REPORTS_DIR}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.572649" elapsed="0.000144"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📁 Data: ${DATA_DIR}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.572873" elapsed="0.000140"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>===================================================</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.573596" elapsed="0.000134"/>
+</kw>
+<doc>🚀 Sets up test environment with enhanced logging</doc>
+<status status="PASS" start="2025-09-28T19:03:54.354965" elapsed="0.218819"/>
+</kw>
+<test id="s1-s1-t1" name="Critical - Network Interface Validation" line="29">
+<kw name="Log Test Start" owner="network_keywords" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.574769" level="INFO">🚀 Starting: Critical - Network Interface Validation</msg>
+<arg>🚀 Starting: ${test_name}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.574616" elapsed="0.000203"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<status status="PASS" start="2025-09-28T19:03:54.574364" elapsed="0.000499"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.575050" level="INFO">🔍 Analyzing network interface configuration...</msg>
+<arg>🔍 Analyzing network interface configuration...</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.574945" elapsed="0.000146"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.575362" level="INFO">${total} = 1</msg>
+<var>${total}</var>
+<arg>${TOTAL_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.575222" elapsed="0.000158"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.575574" level="INFO">${TOTAL_TESTS} = 1</msg>
+<arg>${TOTAL_TESTS}</arg>
+<arg>${total}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.575458" elapsed="0.000142"/>
+</kw>
+<kw name="Execute Network Command" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.576136" level="INFO">Executing: Interface enumeration</msg>
+<arg>Executing: ${description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.576027" elapsed="0.000139"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:03:54.576425" level="INFO">Starting process:
+ip addr show</msg>
+<msg time="2025-09-28T19:03:54.576991" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:03:54.678479" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:03:54.678691" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>${command}</arg>
+<arg>shell=True</arg>
+<arg>timeout=${TIMEOUT_SECONDS}s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.576253" elapsed="0.102471"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${result.rc} != 0</arg>
+<arg>Log</arg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.678961" elapsed="0.000643"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:03:54.679684" elapsed="0.000052"/>
+</return>
+<msg time="2025-09-28T19:03:54.680215" level="INFO">${interface_data} = 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lf...</msg>
+<var>${interface_data}</var>
+<arg>ip addr show</arg>
+<arg>Interface enumeration</arg>
+<doc>Executes network command with enhanced error handling</doc>
+<status status="PASS" start="2025-09-28T19:03:54.575747" elapsed="0.104491"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.680496" level="INFO">Length is 773.</msg>
+<arg>${interface_data}</arg>
+<arg>No network interfaces detected</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.680331" elapsed="0.000211"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${interface_data}</arg>
+<arg>inet</arg>
+<arg>No IP addresses assigned to interfaces</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.680640" elapsed="0.000119"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-09-28T19:03:54.681112" level="INFO">${ip_found} = ['127.0.0.1', '10.255.255.254', '172.27.185.206']</msg>
+<var>${ip_found}</var>
+<arg>${interface_data}</arg>
+<arg>inet (\\d+\\.\\d+\\.\\d+\\.\\d+)/</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.680841" elapsed="0.000291"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.681429" level="INFO">${primary_ip} = 127.0.0.1</msg>
+<var>${primary_ip}</var>
+<arg>${ip_found}</arg>
+<arg>${ip_found}[0]</arg>
+<arg>127.0.0.1</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.681219" elapsed="0.000230"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.681644" level="INFO">✅ Network interface validation: PASSED</msg>
+<arg>✅ Network interface validation: PASSED</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.681546" elapsed="0.000160"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.681941" level="INFO">📍 Primary IP Address: 127.0.0.1</msg>
+<arg>📍 Primary IP Address: ${primary_ip}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.681822" elapsed="0.000165"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${TEST_RESULTS}</arg>
+<arg>Interface Validation: PASS - Primary IP: ${primary_ip}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.682066" elapsed="0.000110"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.682392" level="INFO">${passed} = 1</msg>
+<var>${passed}</var>
+<arg>${PASSED_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.682252" elapsed="0.000158"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.682603" level="INFO">${PASSED_TESTS} = 1</msg>
+<arg>${PASSED_TESTS}</arg>
+<arg>${passed}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.682487" elapsed="0.000143"/>
+</kw>
+<kw name="Log Test End" owner="network_keywords" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.683189" level="INFO">✅ Completed: Critical - Network Interface Validation - Status: PASS</msg>
+<arg>✅ Completed: ${test_name} - Status: ${status}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.683058" elapsed="0.000214"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<arg>${TEST_STATUS}</arg>
+<status status="PASS" start="2025-09-28T19:03:54.682801" elapsed="0.000525"/>
+</kw>
+<doc>🔧 Validates network interface configuration and IP assignment
+Ensures proper network adapter setup and connectivity readiness</doc>
+<tag>automated</tag>
+<tag>compliance</tag>
+<tag>critical</tag>
+<tag>interface</tag>
+<tag>networking</tag>
+<status status="PASS" start="2025-09-28T19:03:54.573849" elapsed="0.109510"/>
+</test>
+<test id="s1-s1-t2" name="Critical - DNS Resolution and Validation" line="56">
+<kw name="Log Test Start" owner="network_keywords" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.685071" level="INFO">🚀 Starting: Critical - DNS Resolution and Validation</msg>
+<arg>🚀 Starting: ${test_name}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.684919" elapsed="0.000254"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<status status="PASS" start="2025-09-28T19:03:54.684219" elapsed="0.001009"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.685453" level="INFO">🔍 Testing DNS resolution capabilities...</msg>
+<arg>🔍 Testing DNS resolution capabilities...</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.685358" elapsed="0.000215"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.685838" level="INFO">${total} = 1</msg>
+<var>${total}</var>
+<arg>${TOTAL_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.685667" elapsed="0.000191"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.686050" level="INFO">${TOTAL_TESTS} = 1</msg>
+<arg>${TOTAL_TESTS}</arg>
+<arg>${total}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.685939" elapsed="0.000148"/>
+</kw>
+<kw name="Split String" owner="String">
+<msg time="2025-09-28T19:03:54.686361" level="INFO">@{domains} = [ google.com | github.com | stackoverflow.com ]</msg>
+<var>@{domains}</var>
+<arg>${TEST_DOMAINS}</arg>
+<arg>,</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.686214" elapsed="0.000165"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.686915" level="INFO">Testing DNS resolution for: google.com</msg>
+<arg>Testing DNS resolution for: ${domain}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.686652" elapsed="0.000312"/>
+</kw>
+<kw name="Test DNS Resolution For Domain" owner="network_keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:03:54.687488" level="INFO">Starting process:
+getent hosts google.com</msg>
+<msg time="2025-09-28T19:03:54.688419" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:03:54.789879" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:03:54.790138" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>getent</arg>
+<arg>hosts</arg>
+<arg>${domain}</arg>
+<arg>timeout=10s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.687285" elapsed="0.102893"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.791170" level="INFO">✅ DNS resolution for google.com: SUCCESS via getent</msg>
+<arg>✅ DNS resolution for ${domain}: SUCCESS via getent</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.791055" elapsed="0.000193"/>
+</kw>
+<arg>${result.rc} == 0</arg>
+<arg>Log</arg>
+<arg>✅ DNS resolution for ${domain}: SUCCESS via getent</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>⚠️ DNS resolution for ${domain}: Using fallback method</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.790381" elapsed="0.000908"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${result.rc} != 0</arg>
+<arg>${result}=</arg>
+<arg>Run Process</arg>
+<arg>ping</arg>
+<arg>-c</arg>
+<arg>1</arg>
+<arg>${domain}</arg>
+<arg>timeout=5s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.791383" elapsed="0.000444"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.792387" level="INFO">Length is 139.</msg>
+<arg>${result.stdout}</arg>
+<arg>DNS resolution completely failed for ${domain}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.791919" elapsed="0.000500"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:03:54.792457" elapsed="0.000036"/>
+</return>
+<msg time="2025-09-28T19:03:54.792927" level="INFO">${dns_result} = 2607:f8b0:4023:1002::8b google.com
+2607:f8b0:4023:1002::8a google.com
+2607:f8b0:4023:1002::64 google.com
+2607:f8b0:4023:1002::66 google.com</msg>
+<var>${dns_result}</var>
+<arg>${domain}</arg>
+<doc>Tests DNS resolution for a specific domain using available tools</doc>
+<status status="PASS" start="2025-09-28T19:03:54.687089" elapsed="0.105857"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.793139" level="INFO">Length is 139.</msg>
+<arg>${dns_result}</arg>
+<arg>DNS resolution failed for ${domain}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.793023" elapsed="0.000145"/>
+</kw>
+<var name="${domain}">google.com</var>
+<status status="PASS" start="2025-09-28T19:03:54.686578" elapsed="0.106613"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.793549" level="INFO">Testing DNS resolution for: github.com</msg>
+<arg>Testing DNS resolution for: ${domain}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.793452" elapsed="0.000130"/>
+</kw>
+<kw name="Test DNS Resolution For Domain" owner="network_keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:03:54.794090" level="INFO">Starting process:
+getent hosts github.com</msg>
+<msg time="2025-09-28T19:03:54.794957" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:03:54.896156" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:03:54.896399" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>getent</arg>
+<arg>hosts</arg>
+<arg>${domain}</arg>
+<arg>timeout=10s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.793935" elapsed="0.102504"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.897538" level="INFO">✅ DNS resolution for github.com: SUCCESS via getent</msg>
+<arg>✅ DNS resolution for ${domain}: SUCCESS via getent</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.897419" elapsed="0.000156"/>
+</kw>
+<arg>${result.rc} == 0</arg>
+<arg>Log</arg>
+<arg>✅ DNS resolution for ${domain}: SUCCESS via getent</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>⚠️ DNS resolution for ${domain}: Using fallback method</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.896715" elapsed="0.000927"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${result.rc} != 0</arg>
+<arg>${result}=</arg>
+<arg>Run Process</arg>
+<arg>ping</arg>
+<arg>-c</arg>
+<arg>1</arg>
+<arg>${domain}</arg>
+<arg>timeout=5s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.897741" elapsed="0.000445"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.898740" level="INFO">Length is 26.</msg>
+<arg>${result.stdout}</arg>
+<arg>DNS resolution completely failed for ${domain}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.898278" elapsed="0.000494"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:03:54.898809" elapsed="0.000033"/>
+</return>
+<msg time="2025-09-28T19:03:54.899280" level="INFO">${dns_result} = 140.82.113.3    github.com</msg>
+<var>${dns_result}</var>
+<arg>${domain}</arg>
+<doc>Tests DNS resolution for a specific domain using available tools</doc>
+<status status="PASS" start="2025-09-28T19:03:54.793722" elapsed="0.105977"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.899999" level="INFO">Length is 26.</msg>
+<arg>${dns_result}</arg>
+<arg>DNS resolution failed for ${domain}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.899825" elapsed="0.000216"/>
+</kw>
+<var name="${domain}">github.com</var>
+<status status="PASS" start="2025-09-28T19:03:54.793376" elapsed="0.106699"/>
+</iter>
+<iter>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:54.900369" level="INFO">Testing DNS resolution for: stackoverflow.com</msg>
+<arg>Testing DNS resolution for: ${domain}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.900261" elapsed="0.000144"/>
+</kw>
+<kw name="Test DNS Resolution For Domain" owner="network_keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:03:54.900942" level="INFO">Starting process:
+getent hosts stackoverflow.com</msg>
+<msg time="2025-09-28T19:03:54.901814" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:03:55.103300" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:03:55.103559" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>getent</arg>
+<arg>hosts</arg>
+<arg>${domain}</arg>
+<arg>timeout=10s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:03:54.900797" elapsed="0.202796"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:55.104706" level="INFO">✅ DNS resolution for stackoverflow.com: SUCCESS via getent</msg>
+<arg>✅ DNS resolution for ${domain}: SUCCESS via getent</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:55.104562" elapsed="0.000184"/>
+</kw>
+<arg>${result.rc} == 0</arg>
+<arg>Log</arg>
+<arg>✅ DNS resolution for ${domain}: SUCCESS via getent</arg>
+<arg>ELSE</arg>
+<arg>Log</arg>
+<arg>⚠️ DNS resolution for ${domain}: Using fallback method</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:03:55.103824" elapsed="0.000960"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${result.rc} != 0</arg>
+<arg>${result}=</arg>
+<arg>Run Process</arg>
+<arg>ping</arg>
+<arg>-c</arg>
+<arg>1</arg>
+<arg>${domain}</arg>
+<arg>timeout=5s</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:03:55.104871" elapsed="0.000564"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-28T19:03:55.106107" level="INFO">Length is 67.</msg>
+<arg>${result.stdout}</arg>
+<arg>DNS resolution completely failed for ${domain}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-28T19:03:55.105539" elapsed="0.000601"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:03:55.106178" elapsed="0.000052"/>
+</return>
+<msg time="2025-09-28T19:03:55.106905" level="INFO">${dns_result} = 104.18.32.7     stackoverflow.com
+172.64.155.249  stackoverflow.com</msg>
+<var>${dns_result}</var>
+<arg>${domain}</arg>
+<doc>Tests DNS resolution for a specific domain using available tools</doc>
+<status status="PASS" start="2025-09-28T19:03:54.900563" elapsed="0.206364"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-28T19:03:55.107153" level="INFO">Length is 67.</msg>
+<arg>${dns_result}</arg>
+<arg>DNS resolution failed for ${domain}</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-28T19:03:55.107012" elapsed="0.000173"/>
+</kw>
+<var name="${domain}">stackoverflow.com</var>
+<status status="PASS" start="2025-09-28T19:03:54.900184" elapsed="0.207026"/>
+</iter>
+<var>${domain}</var>
+<value>@{domains}</value>
+<status status="PASS" start="2025-09-28T19:03:54.686438" elapsed="0.420798"/>
+</for>
+<kw name="Test DNS Server Performance" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:55.107744" level="INFO">Testing Primary DNS (8.8.8.8) performance...</msg>
+<arg>Testing ${server_name} (${dns_server}) performance...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:55.107644" elapsed="0.000129"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:03:55.108005" level="INFO">Starting process:
+ping -c 3 8.8.8.8</msg>
+<msg time="2025-09-28T19:03:55.108862" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:03:57.247961" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:03:57.248151" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>ping</arg>
+<arg>-c</arg>
+<arg>3</arg>
+<arg>${dns_server}</arg>
+<arg>timeout=10s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:03:55.107845" elapsed="2.140326"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-09-28T19:03:57.249018" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result.rc}</arg>
+<arg>0</arg>
+<arg>${server_name} is unreachable</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-28T19:03:57.248395" elapsed="0.000941"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>received</arg>
+<arg>${server_name} ping test failed</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-28T19:03:57.249510" elapsed="0.000980"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:57.250739" level="INFO">✅ Primary DNS performance: EXCELLENT</msg>
+<arg>✅ ${server_name} performance: EXCELLENT</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:57.250626" elapsed="0.000170"/>
+</kw>
+<arg>${PRIMARY_DNS_SERVER}</arg>
+<arg>Primary DNS</arg>
+<doc>Tests specific DNS server performance</doc>
+<status status="PASS" start="2025-09-28T19:03:55.107413" elapsed="2.143461"/>
+</kw>
+<kw name="Test DNS Server Performance" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:57.251348" level="INFO">Testing Secondary DNS (1.1.1.1) performance...</msg>
+<arg>Testing ${server_name} (${dns_server}) performance...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:57.251238" elapsed="0.000139"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:03:57.251601" level="INFO">Starting process:
+ping -c 3 1.1.1.1</msg>
+<msg time="2025-09-28T19:03:57.252379" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:03:59.374231" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:03:59.374434" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>ping</arg>
+<arg>-c</arg>
+<arg>3</arg>
+<arg>${dns_server}</arg>
+<arg>timeout=10s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:03:57.251448" elapsed="2.123011"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-09-28T19:03:59.375270" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result.rc}</arg>
+<arg>0</arg>
+<arg>${server_name} is unreachable</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.374632" elapsed="0.000688"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${result.stdout}</arg>
+<arg>received</arg>
+<arg>${server_name} ping test failed</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.375407" elapsed="0.001213"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:59.376918" level="INFO">✅ Secondary DNS performance: EXCELLENT</msg>
+<arg>✅ ${server_name} performance: EXCELLENT</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.376716" elapsed="0.000241"/>
+</kw>
+<arg>${SECONDARY_DNS_SERVER}</arg>
+<arg>Secondary DNS</arg>
+<doc>Tests specific DNS server performance</doc>
+<status status="PASS" start="2025-09-28T19:03:57.251021" elapsed="2.126006"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:59.377230" level="INFO">✅ DNS resolution validation: PASSED</msg>
+<arg>✅ DNS resolution validation: PASSED</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.377111" elapsed="0.000361"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:59.378096" level="INFO">🌐 Successfully resolved 3 domains</msg>
+<arg>🌐 Successfully resolved ${domains.__len__()} domains</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.377563" elapsed="0.000615"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${TEST_RESULTS}</arg>
+<arg>DNS Resolution: PASS - Multiple domains resolved</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.378269" elapsed="0.000431"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:03:59.379007" level="INFO">${passed} = 1</msg>
+<var>${passed}</var>
+<arg>${PASSED_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.378819" elapsed="0.000207"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:03:59.379444" level="INFO">${PASSED_TESTS} = 1</msg>
+<arg>${PASSED_TESTS}</arg>
+<arg>${passed}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.379123" elapsed="0.000358"/>
+</kw>
+<kw name="Log Test End" owner="network_keywords" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:59.380126" level="INFO">✅ Completed: Critical - DNS Resolution and Validation - Status: PASS</msg>
+<arg>✅ Completed: ${test_name} - Status: ${status}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.379981" elapsed="0.000229"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<arg>${TEST_STATUS}</arg>
+<status status="PASS" start="2025-09-28T19:03:59.379676" elapsed="0.000587"/>
+</kw>
+<doc>🌐 Comprehensive DNS resolution testing using multiple methods
+Tests both IPv4 and IPv6 resolution with fallback mechanisms</doc>
+<tag>automated</tag>
+<tag>critical</tag>
+<tag>dns</tag>
+<tag>networking</tag>
+<tag>resolution</tag>
+<status status="PASS" start="2025-09-28T19:03:54.683601" elapsed="4.696696"/>
+</test>
+<test id="s1-s1-t3" name="Critical - Internet Connectivity Assessment" line="85">
+<kw name="Log Test Start" owner="network_keywords" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:59.381421" level="INFO">🚀 Starting: Critical - Internet Connectivity Assessment</msg>
+<arg>🚀 Starting: ${test_name}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.381218" elapsed="0.000286"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<status status="PASS" start="2025-09-28T19:03:59.381017" elapsed="0.000539"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:59.381724" level="INFO">🔍 Assessing internet connectivity performance...</msg>
+<arg>🔍 Assessing internet connectivity performance...</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.381636" elapsed="0.000166"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:03:59.382071" level="INFO">${total} = 1</msg>
+<var>${total}</var>
+<arg>${TOTAL_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.381914" elapsed="0.000176"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:03:59.382279" level="INFO">${TOTAL_TESTS} = 1</msg>
+<arg>${TOTAL_TESTS}</arg>
+<arg>${total}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.382171" elapsed="0.000135"/>
+</kw>
+<kw name="Test Connectivity With Metrics" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:03:59.382723" level="INFO">Testing connectivity to Google DNS (8.8.8.8)...</msg>
+<arg>Testing connectivity to ${target_name} (${target})...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.382625" elapsed="0.000127"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:03:59.383086" level="INFO">Starting process:
+ping -c 5 8.8.8.8</msg>
+<msg time="2025-09-28T19:03:59.384375" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:03.526738" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:03.526919" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>ping</arg>
+<arg>-c</arg>
+<arg>${PING_COUNT}</arg>
+<arg>${target}</arg>
+<arg>timeout=${TIMEOUT_SECONDS}s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:03:59.382821" elapsed="4.144119"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-09-28T19:04:03.527797" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result.rc}</arg>
+<arg>0</arg>
+<arg>Connectivity to ${target_name} failed</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-28T19:04:03.527118" elapsed="0.000729"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:03.527891" elapsed="0.000037"/>
+</return>
+<msg time="2025-09-28T19:04:03.528377" level="INFO">${ping_result_primary} = PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=111 time=27.4 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=111 time=74.4 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=111 tim...</msg>
+<var>${ping_result_primary}</var>
+<arg>${PRIMARY_DNS_SERVER}</arg>
+<arg>Google DNS</arg>
+<doc>Tests connectivity and extracts performance metrics</doc>
+<status status="PASS" start="2025-09-28T19:03:59.382421" elapsed="4.145976"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${ping_result_primary}</arg>
+<arg>received</arg>
+<arg>Primary DNS connectivity failed</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-28T19:04:03.528485" elapsed="0.000118"/>
+</kw>
+<kw name="Test Connectivity With Metrics" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:03.529054" level="INFO">Testing connectivity to Cloudflare DNS (1.1.1.1)...</msg>
+<arg>Testing connectivity to ${target_name} (${target})...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:03.528958" elapsed="0.000126"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:03.529472" level="INFO">Starting process:
+ping -c 5 1.1.1.1</msg>
+<msg time="2025-09-28T19:04:03.530308" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:07.681083" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:07.681324" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>ping</arg>
+<arg>-c</arg>
+<arg>${PING_COUNT}</arg>
+<arg>${target}</arg>
+<arg>timeout=${TIMEOUT_SECONDS}s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:03.529154" elapsed="4.152764"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.682789" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result.rc}</arg>
+<arg>0</arg>
+<arg>Connectivity to ${target_name} failed</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.682120" elapsed="0.000719"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:07.682895" elapsed="0.000037"/>
+</return>
+<msg time="2025-09-28T19:04:07.683389" level="INFO">${ping_result_secondary} = PING 1.1.1.1 (1.1.1.1) 56(84) bytes of data.
+64 bytes from 1.1.1.1: icmp_seq=1 ttl=49 time=61.9 ms
+64 bytes from 1.1.1.1: icmp_seq=2 ttl=49 time=17.4 ms
+64 bytes from 1.1.1.1: icmp_seq=3 ttl=49 time=5...</msg>
+<var>${ping_result_secondary}</var>
+<arg>${SECONDARY_DNS_SERVER}</arg>
+<arg>Cloudflare DNS</arg>
+<doc>Tests connectivity and extracts performance metrics</doc>
+<status status="PASS" start="2025-09-28T19:04:03.528744" elapsed="4.154665"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${ping_result_secondary}</arg>
+<arg>received</arg>
+<arg>Secondary DNS connectivity failed</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.683527" elapsed="0.000133"/>
+</kw>
+<kw name="Extract Average Latency" owner="network_keywords">
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-09-28T19:04:07.684592" level="INFO">${avg_match} = ['35.610']</msg>
+<var>${avg_match}</var>
+<arg>${ping_output}</arg>
+<arg>rtt min/avg/max/mdev = [\\d.]+/([\\d.]+)/[\\d.]+/[\\d.]+ ms</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.684267" elapsed="0.000346"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.684838" level="INFO">${latency} = 35.610</msg>
+<var>${latency}</var>
+<arg>${avg_match}</arg>
+<arg>${avg_match}[0]</arg>
+<arg>0</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.684705" elapsed="0.000150"/>
+</kw>
+<return>
+<value>${latency}</value>
+<status status="PASS" start="2025-09-28T19:04:07.684889" elapsed="0.000024"/>
+</return>
+<msg time="2025-09-28T19:04:07.684993" level="INFO">${primary_latency} = 35.610</msg>
+<var>${primary_latency}</var>
+<arg>${ping_result_primary}</arg>
+<doc>Extracts average latency from ping output</doc>
+<status status="PASS" start="2025-09-28T19:04:07.683803" elapsed="0.001205"/>
+</kw>
+<kw name="Extract Average Latency" owner="network_keywords">
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-09-28T19:04:07.685458" level="INFO">${avg_match} = ['33.861']</msg>
+<var>${avg_match}</var>
+<arg>${ping_output}</arg>
+<arg>rtt min/avg/max/mdev = [\\d.]+/([\\d.]+)/[\\d.]+/[\\d.]+ ms</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.685322" elapsed="0.000153"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.685667" level="INFO">${latency} = 33.861</msg>
+<var>${latency}</var>
+<arg>${avg_match}</arg>
+<arg>${avg_match}[0]</arg>
+<arg>0</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.685555" elapsed="0.000127"/>
+</kw>
+<return>
+<value>${latency}</value>
+<status status="PASS" start="2025-09-28T19:04:07.685714" elapsed="0.000019"/>
+</return>
+<msg time="2025-09-28T19:04:07.685808" level="INFO">${secondary_latency} = 33.861</msg>
+<var>${secondary_latency}</var>
+<arg>${ping_result_secondary}</arg>
+<doc>Extracts average latency from ping output</doc>
+<status status="PASS" start="2025-09-28T19:04:07.685114" elapsed="0.000708"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${PERFORMANCE_METRICS}</arg>
+<arg>Primary DNS Latency: ${primary_latency}ms</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.685888" elapsed="0.000149"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${PERFORMANCE_METRICS}</arg>
+<arg>Secondary DNS Latency: ${secondary_latency}ms</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.686127" elapsed="0.000119"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.686416" level="INFO">✅ Internet connectivity: EXCELLENT</msg>
+<arg>✅ Internet connectivity: EXCELLENT</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.686323" elapsed="0.000189"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.686720" level="INFO">📊 Primary DNS latency: 35.610ms</msg>
+<arg>📊 Primary DNS latency: ${primary_latency}ms</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.686602" elapsed="0.000163"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.686949" level="INFO">📊 Secondary DNS latency: 33.861ms</msg>
+<arg>📊 Secondary DNS latency: ${secondary_latency}ms</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.686841" elapsed="0.000184"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${TEST_RESULTS}</arg>
+<arg>Internet Connectivity: PASS - Latency: ${primary_latency}ms avg</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.687111" elapsed="0.000129"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.687479" level="INFO">${passed} = 1</msg>
+<var>${passed}</var>
+<arg>${PASSED_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.687333" elapsed="0.000164"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.687688" level="INFO">${PASSED_TESTS} = 1</msg>
+<arg>${PASSED_TESTS}</arg>
+<arg>${passed}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.687577" elapsed="0.000137"/>
+</kw>
+<kw name="Log Test End" owner="network_keywords" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.688295" level="INFO">✅ Completed: Critical - Internet Connectivity Assessment - Status: PASS</msg>
+<arg>✅ Completed: ${test_name} - Status: ${status}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.688151" elapsed="0.000226"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<arg>${TEST_STATUS}</arg>
+<status status="PASS" start="2025-09-28T19:04:07.687847" elapsed="0.000583"/>
+</kw>
+<doc>🌍 Multi-tier internet connectivity validation
+Tests connectivity to multiple public servers with performance metrics</doc>
+<tag>automated</tag>
+<tag>connectivity</tag>
+<tag>critical</tag>
+<tag>networking</tag>
+<tag>performance</tag>
+<status status="PASS" start="2025-09-28T19:03:59.380600" elapsed="8.307860"/>
+</test>
+<test id="s1-s1-t4" name="Normal - Routing Infrastructure Analysis" line="118">
+<kw name="Log Test Start" owner="network_keywords" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.689361" level="INFO">🚀 Starting: Normal - Routing Infrastructure Analysis</msg>
+<arg>🚀 Starting: ${test_name}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.689234" elapsed="0.000208"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<status status="PASS" start="2025-09-28T19:04:07.689046" elapsed="0.000841"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.690135" level="INFO">🔍 Analyzing routing infrastructure...</msg>
+<arg>🔍 Analyzing routing infrastructure...</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.690006" elapsed="0.000231"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.690515" level="INFO">${total} = 1</msg>
+<var>${total}</var>
+<arg>${TOTAL_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.690351" elapsed="0.000182"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.690771" level="INFO">${TOTAL_TESTS} = 1</msg>
+<arg>${TOTAL_TESTS}</arg>
+<arg>${total}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.690645" elapsed="0.000157"/>
+</kw>
+<kw name="Execute Network Command" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.691192" level="INFO">Executing: Routing table collection</msg>
+<arg>Executing: ${description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.691104" elapsed="0.000118"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:07.691911" level="INFO">Starting process:
+ip route show</msg>
+<msg time="2025-09-28T19:04:07.692659" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:07.794303" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:07.794546" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>${command}</arg>
+<arg>shell=True</arg>
+<arg>timeout=${TIMEOUT_SECONDS}s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.691294" elapsed="0.103292"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${result.rc} != 0</arg>
+<arg>Log</arg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.794869" elapsed="0.000634"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:07.795553" elapsed="0.000038"/>
+</return>
+<msg time="2025-09-28T19:04:07.796140" level="INFO">${route_data} = default via 172.27.176.1 dev eth0 proto kernel 
+172.27.176.0/20 dev eth0 proto kernel scope link src 172.27.185.206 </msg>
+<var>${route_data}</var>
+<arg>ip route show</arg>
+<arg>Routing table collection</arg>
+<doc>Executes network command with enhanced error handling</doc>
+<status status="PASS" start="2025-09-28T19:04:07.690918" elapsed="0.105244"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.796385" level="INFO">Length is 116.</msg>
+<arg>${route_data}</arg>
+<arg>Routing table is empty or inaccessible</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.796255" elapsed="0.000162"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${route_data}</arg>
+<arg>default</arg>
+<arg>No default gateway configured</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.796522" elapsed="0.000131"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-09-28T19:04:07.797040" level="INFO">${gateway_matches} = ['172.27.176.1']</msg>
+<var>${gateway_matches}</var>
+<arg>${route_data}</arg>
+<arg>via (\\d+\\.\\d+\\.\\d+\\.\\d+)</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.796741" elapsed="0.000318"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.797488" level="INFO">${gateway_ip} = 172.27.176.1</msg>
+<var>${gateway_ip}</var>
+<arg>${gateway_matches}</arg>
+<arg>${gateway_matches}[0]</arg>
+<arg>Unknown</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.797173" elapsed="0.000364"/>
+</kw>
+<kw name="Split To Lines" owner="String">
+<msg time="2025-09-28T19:04:07.797738" level="INFO">2 lines returned.</msg>
+<msg time="2025-09-28T19:04:07.797826" level="INFO">${lines} = ['default via 172.27.176.1 dev eth0 proto kernel ', '172.27.176.0/20 dev eth0 proto kernel scope link src 172.27.185.206 ']</msg>
+<var>${lines}</var>
+<arg>${route_data}</arg>
+<doc>Splits the given string to lines.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.797639" elapsed="0.000208"/>
+</kw>
+<kw name="Get Length" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.798048" level="INFO">Length is 2.</msg>
+<msg time="2025-09-28T19:04:07.798099" level="INFO">${route_count} = 2</msg>
+<var>${route_count}</var>
+<arg>${lines}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.797951" elapsed="0.000162"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${route_count} &gt; 0</arg>
+<arg>No routes configured</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.798198" elapsed="0.000143"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.798538" level="INFO">✅ Routing analysis: COMPLETED</msg>
+<arg>✅ Routing analysis: COMPLETED</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.798435" elapsed="0.000196"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.799084" level="INFO">🛣️ Default Gateway: 172.27.176.1</msg>
+<arg>🛣️ Default Gateway: ${gateway_ip}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.798720" elapsed="0.000411"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.799352" level="INFO">📊 Total Routes: 2</msg>
+<arg>📊 Total Routes: ${route_count}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.799228" elapsed="0.000165"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${TEST_RESULTS}</arg>
+<arg>Routing Analysis: PASS - Gateway: ${gateway_ip}, Routes: ${route_count}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.799464" elapsed="0.000118"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.799778" level="INFO">${passed} = 1</msg>
+<var>${passed}</var>
+<arg>${PASSED_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.799651" elapsed="0.000145"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.800053" level="INFO">${PASSED_TESTS} = 1</msg>
+<arg>${PASSED_TESTS}</arg>
+<arg>${passed}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.799911" elapsed="0.000170"/>
+</kw>
+<kw name="Log Test End" owner="network_keywords" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.800608" level="INFO">✅ Completed: Normal - Routing Infrastructure Analysis - Status: PASS</msg>
+<arg>✅ Completed: ${test_name} - Status: ${status}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.800486" elapsed="0.000168"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<arg>${TEST_STATUS}</arg>
+<status status="PASS" start="2025-09-28T19:04:07.800236" elapsed="0.000460"/>
+</kw>
+<doc>🛣️ Comprehensive routing table analysis and gateway validation
+Ensures proper network path configuration and redundancy</doc>
+<tag>automated</tag>
+<tag>infrastructure</tag>
+<tag>networking</tag>
+<tag>normal</tag>
+<tag>routing</tag>
+<status status="PASS" start="2025-09-28T19:04:07.688623" elapsed="0.112101"/>
+</test>
+<test id="s1-s1-t5" name="Normal - Network Performance Baseline" line="151">
+<kw name="Log Test Start" owner="network_keywords" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.802274" level="INFO">🚀 Starting: Normal - Network Performance Baseline</msg>
+<arg>🚀 Starting: ${test_name}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.802143" elapsed="0.000214"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<status status="PASS" start="2025-09-28T19:04:07.801894" elapsed="0.000517"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.802581" level="INFO">🔍 Establishing network performance baseline...</msg>
+<arg>🔍 Establishing network performance baseline...</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.802493" elapsed="0.000168"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.802896" level="INFO">${total} = 1</msg>
+<var>${total}</var>
+<arg>${TOTAL_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.802750" elapsed="0.000165"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.803146" level="INFO">${TOTAL_TESTS} = 1</msg>
+<arg>${TOTAL_TESTS}</arg>
+<arg>${total}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.803024" elapsed="0.000153"/>
+</kw>
+<kw name="Execute Extended Performance Test" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:07.803571" level="INFO">Executing extended performance test to 8.8.8.8...</msg>
+<arg>Executing extended performance test to ${target}...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.803487" elapsed="0.000114"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:07.803827" level="INFO">Starting process:
+ping -c 10 8.8.8.8</msg>
+<msg time="2025-09-28T19:04:07.804677" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:17.054527" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:17.054744" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>ping</arg>
+<arg>-c</arg>
+<arg>10</arg>
+<arg>${target}</arg>
+<arg>timeout=30s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:07.803673" elapsed="9.251104"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.055791" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${result.rc}</arg>
+<arg>0</arg>
+<arg>Extended performance test failed</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.055000" elapsed="0.000839"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:17.055882" elapsed="0.000039"/>
+</return>
+<msg time="2025-09-28T19:04:17.056411" level="INFO">${performance_data} = PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=111 time=380 ms
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=111 time=62.6 ms
+64 bytes from 8.8.8.8: icmp_seq=3 ttl=111 time...</msg>
+<var>${performance_data}</var>
+<arg>${PRIMARY_DNS_SERVER}</arg>
+<doc>Executes extended performance test with detailed statistics</doc>
+<status status="PASS" start="2025-09-28T19:04:07.803296" elapsed="9.253141"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${performance_data}</arg>
+<arg>received</arg>
+<arg>Performance test failed</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.056534" elapsed="0.000122"/>
+</kw>
+<kw name="Extract Min Latency" owner="network_keywords">
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-09-28T19:04:17.057414" level="INFO">${min_match} = ['23.275']</msg>
+<var>${min_match}</var>
+<arg>${ping_output}</arg>
+<arg>rtt min/avg/max/mdev = ([\\d.]+)/[\\d.]+/[\\d.]+/[\\d.]+ ms</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.057011" elapsed="0.000426"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.057685" level="INFO">${latency} = 23.275</msg>
+<var>${latency}</var>
+<arg>${min_match}</arg>
+<arg>${min_match}[0]</arg>
+<arg>0</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.057535" elapsed="0.000167"/>
+</kw>
+<return>
+<value>${latency}</value>
+<status status="PASS" start="2025-09-28T19:04:17.057735" elapsed="0.000021"/>
+</return>
+<msg time="2025-09-28T19:04:17.057836" level="INFO">${min_latency} = 23.275</msg>
+<var>${min_latency}</var>
+<arg>${performance_data}</arg>
+<status status="PASS" start="2025-09-28T19:04:17.056797" elapsed="0.001055"/>
+</kw>
+<kw name="Extract Max Latency" owner="network_keywords">
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-09-28T19:04:17.058404" level="INFO">${max_match} = ['379.956']</msg>
+<var>${max_match}</var>
+<arg>${ping_output}</arg>
+<arg>rtt min/avg/max/mdev = [\\d.]+/[\\d.]+/([\\d.]+)/[\\d.]+ ms</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.058159" elapsed="0.000287"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.058671" level="INFO">${latency} = 379.956</msg>
+<var>${latency}</var>
+<arg>${max_match}</arg>
+<arg>${max_match}[0]</arg>
+<arg>0</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.058545" elapsed="0.000145"/>
+</kw>
+<return>
+<value>${latency}</value>
+<status status="PASS" start="2025-09-28T19:04:17.058724" elapsed="0.000020"/>
+</return>
+<msg time="2025-09-28T19:04:17.058822" level="INFO">${max_latency} = 379.956</msg>
+<var>${max_latency}</var>
+<arg>${performance_data}</arg>
+<status status="PASS" start="2025-09-28T19:04:17.057958" elapsed="0.000880"/>
+</kw>
+<kw name="Extract Average Latency" owner="network_keywords">
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-09-28T19:04:17.059285" level="INFO">${avg_match} = ['100.170']</msg>
+<var>${avg_match}</var>
+<arg>${ping_output}</arg>
+<arg>rtt min/avg/max/mdev = [\\d.]+/([\\d.]+)/[\\d.]+/[\\d.]+ ms</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.059149" elapsed="0.000154"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.059491" level="INFO">${latency} = 100.170</msg>
+<var>${latency}</var>
+<arg>${avg_match}</arg>
+<arg>${avg_match}[0]</arg>
+<arg>0</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.059382" elapsed="0.000124"/>
+</kw>
+<return>
+<value>${latency}</value>
+<status status="PASS" start="2025-09-28T19:04:17.059537" elapsed="0.000019"/>
+</return>
+<msg time="2025-09-28T19:04:17.059629" level="INFO">${avg_latency} = 100.170</msg>
+<var>${avg_latency}</var>
+<arg>${performance_data}</arg>
+<doc>Extracts average latency from ping output</doc>
+<status status="PASS" start="2025-09-28T19:04:17.058949" elapsed="0.000694"/>
+</kw>
+<kw name="Extract Packet Loss" owner="network_keywords">
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-09-28T19:04:17.060294" level="INFO">${loss_match} = ['0']</msg>
+<var>${loss_match}</var>
+<arg>${ping_output}</arg>
+<arg>([\\d]+)% packet loss</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.059928" elapsed="0.000384"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.061204" level="INFO">${loss} = 0</msg>
+<var>${loss}</var>
+<arg>${loss_match}</arg>
+<arg>${loss_match}[0]</arg>
+<arg>0</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.061008" elapsed="0.000220"/>
+</kw>
+<return>
+<value>${loss}</value>
+<status status="PASS" start="2025-09-28T19:04:17.061292" elapsed="0.000027"/>
+</return>
+<msg time="2025-09-28T19:04:17.061426" level="INFO">${packet_loss} = 0</msg>
+<var>${packet_loss}</var>
+<arg>${performance_data}</arg>
+<status status="PASS" start="2025-09-28T19:04:17.059740" elapsed="0.001706"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${avg_latency} &lt; 500</arg>
+<arg>Average latency too high: ${avg_latency}ms</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.061537" elapsed="0.000216"/>
+</kw>
+<kw name="Should Be True" owner="BuiltIn">
+<arg>${packet_loss} &lt;= 5</arg>
+<arg>Excessive packet loss: ${packet_loss}%</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.061848" elapsed="0.000197"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${PERFORMANCE_METRICS}</arg>
+<arg>Minimum Latency: ${min_latency}ms</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.062117" elapsed="0.000103"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${PERFORMANCE_METRICS}</arg>
+<arg>Maximum Latency: ${max_latency}ms</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.062285" elapsed="0.000094"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${PERFORMANCE_METRICS}</arg>
+<arg>Average Latency: ${avg_latency}ms</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.062443" elapsed="0.000095"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${PERFORMANCE_METRICS}</arg>
+<arg>Packet Loss: ${packet_loss}%</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.062601" elapsed="0.000149"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.062933" level="INFO">✅ Performance baseline: ESTABLISHED</msg>
+<arg>✅ Performance baseline: ESTABLISHED</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.062835" elapsed="0.000155"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.063204" level="INFO">📊 Latency Range: 23.275-379.956ms (avg: 100.170ms)</msg>
+<arg>📊 Latency Range: ${min_latency}-${max_latency}ms (avg: ${avg_latency}ms)</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.063066" elapsed="0.000180"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.063421" level="INFO">📊 Packet Loss: 0%</msg>
+<arg>📊 Packet Loss: ${packet_loss}%</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.063320" elapsed="0.000141"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${TEST_RESULTS}</arg>
+<arg>Performance Baseline: PASS - Avg: ${avg_latency}ms, Loss: ${packet_loss}%</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.063530" elapsed="0.000113"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.063863" level="INFO">${passed} = 1</msg>
+<var>${passed}</var>
+<arg>${PASSED_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.063714" elapsed="0.000167"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.064064" level="INFO">${PASSED_TESTS} = 1</msg>
+<arg>${PASSED_TESTS}</arg>
+<arg>${passed}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.063955" elapsed="0.000134"/>
+</kw>
+<kw name="Log Test End" owner="network_keywords" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.064652" level="INFO">✅ Completed: Normal - Network Performance Baseline - Status: PASS</msg>
+<arg>✅ Completed: ${test_name} - Status: ${status}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.064523" elapsed="0.000204"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<arg>${TEST_STATUS}</arg>
+<status status="PASS" start="2025-09-28T19:04:17.064224" elapsed="0.000555"/>
+</kw>
+<doc>📈 Establishes comprehensive network performance baseline
+Measures latency, jitter, and throughput characteristics</doc>
+<tag>automated</tag>
+<tag>baseline</tag>
+<tag>monitoring</tag>
+<tag>networking</tag>
+<tag>normal</tag>
+<tag>performance</tag>
+<status status="PASS" start="2025-09-28T19:04:07.801387" elapsed="9.263422"/>
+</test>
+<test id="s1-s1-t6" name="Critical - Target Machine Connection" line="188">
+<kw name="Log Test Start" owner="network_keywords" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.065863" level="INFO">🚀 Starting: Critical - Target Machine Connection</msg>
+<arg>🚀 Starting: ${test_name}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.065755" elapsed="0.000189"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<status status="PASS" start="2025-09-28T19:04:17.065503" elapsed="0.000494"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.066173" level="INFO">🔍 Establishing connection to target machine...</msg>
+<arg>🔍 Establishing connection to target machine...</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.066083" elapsed="0.000168"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.066478" level="INFO">${total} = 1</msg>
+<var>${total}</var>
+<arg>${TOTAL_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.066338" elapsed="0.000158"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.066686" level="INFO">${TOTAL_TESTS} = 1</msg>
+<arg>${TOTAL_TESTS}</arg>
+<arg>${total}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.066581" elapsed="0.000131"/>
+</kw>
+<kw name="Connect To Target Machine" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.067216" level="INFO">🔗 Attempting connection to 192.168.1.100 (windows)...</msg>
+<arg>🔗 Attempting connection to ${host} (${os_type})...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.067115" elapsed="0.000132"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Connect Via WinRM" owner="network_keywords">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:04:17.068722" level="INFO">${winrm_script} = import socket; s=socket.socket(); s.settimeout(5); result=s.connect_ex(('192.168.1.100', 5985)); s.close(); print('SUCCESS: WinRM port 5985 accessible' if result == 0 else 'FAILED: WinRM port not acce...</msg>
+<var>${winrm_script}</var>
+<arg>import socket; s=socket.socket(); s.settimeout(5); result=s.connect_ex(('${host}', 5985)); s.close(); print('SUCCESS: WinRM port 5985 accessible' if result == 0 else 'FAILED: WinRM port not accessible')</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.068472" elapsed="0.000290"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:17.069620" level="INFO" html="true">Created file '&lt;a href="file:///tmp/winrm_test.py"&gt;/tmp/winrm_test.py&lt;/a&gt;'.</msg>
+<arg>/tmp/winrm_test.py</arg>
+<arg>${winrm_script}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.069289" elapsed="0.000375"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:17.069885" level="INFO">Starting process:
+python3 /tmp/winrm_test.py</msg>
+<msg time="2025-09-28T19:04:17.070761" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:20.000826" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:20.001102" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>python3</arg>
+<arg>/tmp/winrm_test.py</arg>
+<arg>timeout=10s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.069751" elapsed="2.931398"/>
+</kw>
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:20.002022" level="INFO" html="true">Removed file '&lt;a href="file:///tmp/winrm_test.py"&gt;/tmp/winrm_test.py&lt;/a&gt;'.</msg>
+<arg>/tmp/winrm_test.py</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.001622" elapsed="0.000498"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.002877" level="INFO">${connection_status} = FAILED: WinRM connection to 192.168.1.100:5985 failed</msg>
+<var>${connection_status}</var>
+<arg>'SUCCESS' in '${result.stdout}'</arg>
+<arg>SUCCESS: WinRM connection to ${host}:5985 established</arg>
+<arg>FAILED: WinRM connection to ${host}:5985 failed</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.002249" elapsed="0.000647"/>
+</kw>
+<return>
+<value>${connection_status}</value>
+<status status="PASS" start="2025-09-28T19:04:20.002940" elapsed="0.000037"/>
+</return>
+<arg>${host}</arg>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<doc>Connect to Windows machine via WinRM</doc>
+<status status="PASS" start="2025-09-28T19:04:17.068195" elapsed="2.934867"/>
+</kw>
+<msg time="2025-09-28T19:04:20.003120" level="INFO">${connection_result} = FAILED: WinRM connection to 192.168.1.100:5985 failed</msg>
+<var>${connection_result}</var>
+<arg>'${os_type.lower()}' == 'windows'</arg>
+<arg>Connect Via WinRM</arg>
+<arg>${host}</arg>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<arg>ELSE</arg>
+<arg>Connect Via SSH</arg>
+<arg>${host}</arg>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:17.067332" elapsed="2.935805"/>
+</kw>
+<return>
+<value>${connection_result}</value>
+<status status="PASS" start="2025-09-28T19:04:20.003176" elapsed="0.000017"/>
+</return>
+<msg time="2025-09-28T19:04:20.003273" level="INFO">${connection_result} = FAILED: WinRM connection to 192.168.1.100:5985 failed</msg>
+<var>${connection_result}</var>
+<arg>${TARGET_HOST}</arg>
+<arg>${TARGET_OS}</arg>
+<arg>${TARGET_USERNAME}</arg>
+<arg>${TARGET_PASSWORD}</arg>
+<doc>🔗 Establish connection to target machine via WinRM (Windows) or SSH (Linux)</doc>
+<status status="PASS" start="2025-09-28T19:04:17.066858" elapsed="2.936430"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.003596" level="FAIL">Failed to connect to target machine: 'FAILED: WinRM connection to 192.168.1.100:5985 failed' does not contain 'SUCCESS'</msg>
+<arg>${connection_result}</arg>
+<arg>SUCCESS</arg>
+<arg>Failed to connect to target machine</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="FAIL" start="2025-09-28T19:04:20.003375" elapsed="0.000569">Failed to connect to target machine: 'FAILED: WinRM connection to 192.168.1.100:5985 failed' does not contain 'SUCCESS'</status>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<arg>${connection_result}</arg>
+<arg>Connection result is empty</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:20.004046" elapsed="0.000016"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>✅ Target connection: ESTABLISHED</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:20.004131" elapsed="0.000013"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>🔗 Connection: ${connection_result}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:20.004205" elapsed="0.000011"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${TEST_RESULTS}</arg>
+<arg>Target Connection: PASS - ${connection_result}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:20.004311" elapsed="0.000019"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${passed}</var>
+<arg>${PASSED_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:20.004407" elapsed="0.000014"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${PASSED_TESTS}</arg>
+<arg>${passed}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:20.004491" elapsed="0.000012"/>
+</kw>
+<kw name="Log Test End" owner="network_keywords" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.005080" level="INFO">✅ Completed: Critical - Target Machine Connection - Status: FAIL</msg>
+<arg>✅ Completed: ${test_name} - Status: ${status}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.004942" elapsed="0.000233"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<arg>${TEST_STATUS}</arg>
+<status status="PASS" start="2025-09-28T19:04:20.004701" elapsed="0.000528"/>
+</kw>
+<doc>🔗 Establish direct connection to target machine via WinRM/SSH
+Tests connectivity and authentication to remote systems</doc>
+<tag>automated</tag>
+<tag>connection</tag>
+<tag>critical</tag>
+<tag>networking</tag>
+<tag>remote</tag>
+<tag>ssh</tag>
+<tag>winrm</tag>
+<status status="FAIL" start="2025-09-28T19:04:17.065032" elapsed="2.940270">Failed to connect to target machine: 'FAILED: WinRM connection to 192.168.1.100:5985 failed' does not contain 'SUCCESS'</status>
+</test>
+<test id="s1-s1-t7" name="Critical - Comprehensive Network Data Collection" line="210">
+<kw name="Log Test Start" owner="network_keywords" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.006236" level="INFO">🚀 Starting: Critical - Comprehensive Network Data Collection</msg>
+<arg>🚀 Starting: ${test_name}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.006124" elapsed="0.000271"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<status status="PASS" start="2025-09-28T19:04:20.005933" elapsed="0.000534"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.006655" level="INFO">🔍 Collecting comprehensive network data...</msg>
+<arg>🔍 Collecting comprehensive network data...</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.006547" elapsed="0.000155"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.007091" level="INFO">${total} = 1</msg>
+<var>${total}</var>
+<arg>${TOTAL_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.006833" elapsed="0.000293"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.007510" level="INFO">${TOTAL_TESTS} = 1</msg>
+<arg>${TOTAL_TESTS}</arg>
+<arg>${total}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.007308" elapsed="0.000277"/>
+</kw>
+<kw name="Collect All Network Information" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.008693" level="INFO">📊 Collecting all network information from 192.168.1.100...</msg>
+<arg>📊 Collecting all network information from ${host}...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.008580" elapsed="0.000154"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.009002" level="INFO">${network_data} = {}</msg>
+<var>${network_data}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.008832" elapsed="0.000199"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Network Command" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.010110" level="INFO">Executing: Windows interface configuration</msg>
+<arg>Executing: ${description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.010018" elapsed="0.000126"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:20.010410" level="INFO">Starting process:
+ipconfig /all</msg>
+<msg time="2025-09-28T19:04:20.010943" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:20.111643" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:20.111913" level="INFO">${result} = &lt;result object with rc 127&gt;</msg>
+<var>${result}</var>
+<arg>${command}</arg>
+<arg>shell=True</arg>
+<arg>timeout=${TIMEOUT_SECONDS}s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.010228" elapsed="0.101733"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.113618" level="WARN">Warning: Windows interface configuration returned non-zero exit code: 127</msg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.113092" elapsed="0.000628"/>
+</kw>
+<arg>${result.rc} != 0</arg>
+<arg>Log</arg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.112263" elapsed="0.001497"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:20.113798" elapsed="0.000037"/>
+</return>
+<arg>ipconfig /all</arg>
+<arg>Windows interface configuration</arg>
+<doc>Executes network command with enhanced error handling</doc>
+<status status="PASS" start="2025-09-28T19:04:20.009775" elapsed="0.104496"/>
+</kw>
+<msg time="2025-09-28T19:04:20.114341" level="INFO">${ifconfig_data} = </msg>
+<var>${ifconfig_data}</var>
+<arg>'${os_type.lower()}' == 'windows'</arg>
+<arg>Execute Network Command</arg>
+<arg>ipconfig /all</arg>
+<arg>Windows interface configuration</arg>
+<arg>ELSE</arg>
+<arg>Execute Network Command</arg>
+<arg>ip addr show</arg>
+<arg>Linux interface configuration</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.009125" elapsed="0.105233"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${network_data}</arg>
+<arg>ifconfig</arg>
+<arg>${ifconfig_data}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.114447" elapsed="0.000128"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Network Command" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.115669" level="INFO">Executing: Windows routing table</msg>
+<arg>Executing: ${description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.115565" elapsed="0.000150"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:20.116485" level="INFO">Starting process:
+route print</msg>
+<msg time="2025-09-28T19:04:20.117199" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:20.218326" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:20.218503" level="INFO">${result} = &lt;result object with rc 127&gt;</msg>
+<var>${result}</var>
+<arg>${command}</arg>
+<arg>shell=True</arg>
+<arg>timeout=${TIMEOUT_SECONDS}s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.115798" elapsed="0.102728"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.219815" level="WARN">Warning: Windows routing table returned non-zero exit code: 127</msg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.219335" elapsed="0.000640"/>
+</kw>
+<arg>${result.rc} != 0</arg>
+<arg>Log</arg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.218705" elapsed="0.001317"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:20.220063" elapsed="0.000035"/>
+</return>
+<arg>route print</arg>
+<arg>Windows routing table</arg>
+<doc>Executes network command with enhanced error handling</doc>
+<status status="PASS" start="2025-09-28T19:04:20.115332" elapsed="0.105222"/>
+</kw>
+<msg time="2025-09-28T19:04:20.220623" level="INFO">${route_data} = </msg>
+<var>${route_data}</var>
+<arg>'${os_type.lower()}' == 'windows'</arg>
+<arg>Execute Network Command</arg>
+<arg>route print</arg>
+<arg>Windows routing table</arg>
+<arg>ELSE</arg>
+<arg>Execute Network Command</arg>
+<arg>ip route show</arg>
+<arg>Linux routing table</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.114661" elapsed="0.105980"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${network_data}</arg>
+<arg>route</arg>
+<arg>${route_data}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.220732" elapsed="0.000123"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Network Command" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.221880" level="INFO">Executing: Windows DNS resolution test</msg>
+<arg>Executing: ${description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.221779" elapsed="0.000133"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:20.222170" level="INFO">Starting process:
+nslookup google.com</msg>
+<msg time="2025-09-28T19:04:20.222717" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:20.323121" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:20.323305" level="INFO">${result} = &lt;result object with rc 127&gt;</msg>
+<var>${result}</var>
+<arg>${command}</arg>
+<arg>shell=True</arg>
+<arg>timeout=${TIMEOUT_SECONDS}s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.221985" elapsed="0.101342"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.324707" level="WARN">Warning: Windows DNS resolution test returned non-zero exit code: 127</msg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.324222" elapsed="0.000617"/>
+</kw>
+<arg>${result.rc} != 0</arg>
+<arg>Log</arg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.323531" elapsed="0.001831"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:20.325415" elapsed="0.000044"/>
+</return>
+<arg>nslookup google.com</arg>
+<arg>Windows DNS resolution test</arg>
+<doc>Executes network command with enhanced error handling</doc>
+<status status="PASS" start="2025-09-28T19:04:20.221573" elapsed="0.104329"/>
+</kw>
+<msg time="2025-09-28T19:04:20.325971" level="INFO">${dns_data} = </msg>
+<var>${dns_data}</var>
+<arg>'${os_type.lower()}' == 'windows'</arg>
+<arg>Execute Network Command</arg>
+<arg>nslookup google.com</arg>
+<arg>Windows DNS resolution test</arg>
+<arg>ELSE</arg>
+<arg>Execute Network Command</arg>
+<arg>dig google.com</arg>
+<arg>Linux DNS resolution test</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.220941" elapsed="0.105048"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${network_data}</arg>
+<arg>dns</arg>
+<arg>${dns_data}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.326079" elapsed="0.000133"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Network Command" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.327230" level="INFO">Executing: Windows time service status</msg>
+<arg>Executing: ${description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.327110" elapsed="0.000154"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:20.327535" level="INFO">Starting process:
+w32tm /query /status</msg>
+<msg time="2025-09-28T19:04:20.328105" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:20.428690" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:20.428934" level="INFO">${result} = &lt;result object with rc 127&gt;</msg>
+<var>${result}</var>
+<arg>${command}</arg>
+<arg>shell=True</arg>
+<arg>timeout=${TIMEOUT_SECONDS}s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.327341" elapsed="0.101634"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.430577" level="WARN">Warning: Windows time service status returned non-zero exit code: 127</msg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.430082" elapsed="0.000610"/>
+</kw>
+<arg>${result.rc} != 0</arg>
+<arg>Log</arg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.429346" elapsed="0.001389"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:20.430771" elapsed="0.000035"/>
+</return>
+<arg>w32tm /query /status</arg>
+<arg>Windows time service status</arg>
+<doc>Executes network command with enhanced error handling</doc>
+<status status="PASS" start="2025-09-28T19:04:20.326868" elapsed="0.104325"/>
+</kw>
+<msg time="2025-09-28T19:04:20.431255" level="INFO">${ntp_data} = </msg>
+<var>${ntp_data}</var>
+<arg>'${os_type.lower()}' == 'windows'</arg>
+<arg>Execute Network Command</arg>
+<arg>w32tm /query /status</arg>
+<arg>Windows time service status</arg>
+<arg>ELSE</arg>
+<arg>Execute Network Command</arg>
+<arg>timedatectl status</arg>
+<arg>Linux time synchronization status</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.326299" elapsed="0.104972"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${network_data}</arg>
+<arg>ntp</arg>
+<arg>${ntp_data}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.431353" elapsed="0.000106"/>
+</kw>
+<return>
+<value>${network_data}</value>
+<status status="PASS" start="2025-09-28T19:04:20.431489" elapsed="0.000019"/>
+</return>
+<msg time="2025-09-28T19:04:20.431607" level="INFO">${network_data} = {'ifconfig': '', 'route': '', 'dns': '', 'ntp': ''}</msg>
+<var>${network_data}</var>
+<arg>${TARGET_HOST}</arg>
+<arg>${TARGET_OS}</arg>
+<doc>📊 Collect comprehensive network data in one pass</doc>
+<status status="PASS" start="2025-09-28T19:04:20.008280" elapsed="0.423342"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.431789" level="INFO">Length is 4.</msg>
+<arg>${network_data}</arg>
+<arg>Network data collection failed</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.431693" elapsed="0.000121"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-28T19:04:20.431972" level="INFO">${ifconfig_data} = </msg>
+<var>${ifconfig_data}</var>
+<arg>${network_data}</arg>
+<arg>ifconfig</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.431879" elapsed="0.000106"/>
+</kw>
+<kw name="Save Network Data To File" owner="network_keywords">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-28T19:04:20.432463" level="INFO">${timestamp} = 20250928_190420</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.432333" elapsed="0.000146"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.432659" level="INFO">${filename} = /mnt/c/Users/write/robot/robotframework/tests/test3/../../results/test3/data/network_data_ifconfig_20250928_190420.txt</msg>
+<var>${filename}</var>
+<arg>${DATA_DIR}/network_data_${data_type}_${timestamp}.txt</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.432545" elapsed="0.000129"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:20.440033" level="INFO" html="true">Created file '&lt;a href="file:///mnt/c/Users/write/robot/robotframework/results/test3/data/network_data_ifconfig_20250928_190420.txt"&gt;/mnt/c/Users/write/robot/robotframework/results/test3/data/network_data_ifconfig_20250928_190420.txt&lt;/a&gt;'.</msg>
+<arg>${filename}</arg>
+<arg>${data}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.432732" elapsed="0.007403"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.440457" level="INFO">📁 ifconfig data saved to: /mnt/c/Users/write/robot/robotframework/tests/test3/../../results/test3/data/network_data_ifconfig_20250928_190420.txt</msg>
+<arg>📁 ${data_type} data saved to: ${filename}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.440286" elapsed="0.000204"/>
+</kw>
+<arg>ifconfig</arg>
+<arg>${ifconfig_data}</arg>
+<doc>💾 Save network data to timestamped file</doc>
+<status status="PASS" start="2025-09-28T19:04:20.432104" elapsed="0.008430"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${network_data}</arg>
+<arg>ifconfig</arg>
+<arg>Interface data not collected</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.440608" elapsed="0.000119"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${network_data}</arg>
+<arg>route</arg>
+<arg>Routing data not collected</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.440792" elapsed="0.000085"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${network_data}</arg>
+<arg>dns</arg>
+<arg>DNS data not collected</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.441240" elapsed="0.000177"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${network_data}</arg>
+<arg>ntp</arg>
+<arg>NTP data not collected</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.441491" elapsed="0.000094"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.441730" level="INFO">✅ Network data collection: COMPLETED</msg>
+<arg>✅ Network data collection: COMPLETED</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.441650" elapsed="0.000156"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.441983" level="INFO">📁 Data saved to: /mnt/c/Users/write/robot/robotframework/tests/test3/../../results/test3/data/network_data_*.txt</msg>
+<arg>📁 Data saved to: ${DATA_DIR}/network_data_*.txt</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.441882" elapsed="0.000167"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${TEST_RESULTS}</arg>
+<arg>Network Data Collection: PASS - All data collected</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.442123" elapsed="0.000084"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.442583" level="INFO">${passed} = 1</msg>
+<var>${passed}</var>
+<arg>${PASSED_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.442277" elapsed="0.000322"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.442804" level="INFO">${PASSED_TESTS} = 1</msg>
+<arg>${PASSED_TESTS}</arg>
+<arg>${passed}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.442670" elapsed="0.000163"/>
+</kw>
+<kw name="Log Test End" owner="network_keywords" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.443334" level="INFO">✅ Completed: Critical - Comprehensive Network Data Collection - Status: PASS</msg>
+<arg>✅ Completed: ${test_name} - Status: ${status}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.443229" elapsed="0.000172"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<arg>${TEST_STATUS}</arg>
+<status status="PASS" start="2025-09-28T19:04:20.443002" elapsed="0.000443"/>
+</kw>
+<doc>📊 Execute all network commands in one pass and capture outputs
+Collects ifconfig, route, DNS, NTP data and saves to files</doc>
+<tag>automated</tag>
+<tag>comprehensive</tag>
+<tag>critical</tag>
+<tag>data-collection</tag>
+<tag>networking</tag>
+<status status="PASS" start="2025-09-28T19:04:20.005495" elapsed="0.437976"/>
+</test>
+<test id="s1-s1-t8" name="Critical - EDS Validation Against Specification" line="240">
+<kw name="Log Test Start" owner="network_keywords" type="SETUP">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.444645" level="INFO">🚀 Starting: Critical - EDS Validation Against Specification</msg>
+<arg>🚀 Starting: ${test_name}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.444552" elapsed="0.000160"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<status status="PASS" start="2025-09-28T19:04:20.444391" elapsed="0.000365"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.444898" level="INFO">🔍 Validating against EDS specification...</msg>
+<arg>🔍 Validating against EDS specification...</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.444824" elapsed="0.000153"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.445176" level="INFO">${total} = 1</msg>
+<var>${total}</var>
+<arg>${TOTAL_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.445053" elapsed="0.000137"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.445361" level="INFO">${TOTAL_TESTS} = 1</msg>
+<arg>${TOTAL_TESTS}</arg>
+<arg>${total}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.445267" elapsed="0.000116"/>
+</kw>
+<kw name="Load EDS Configuration" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.445700" level="INFO">📋 Loading EDS configuration from EDS_Network_Configuration.xlsx...</msg>
+<arg>📋 Loading EDS configuration from ${excel_filename}...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.445630" elapsed="0.000095"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:04:20.445877" level="INFO">${excel_script} = import pandas as pd; import json; df=pd.read_excel('EDS_Network_Configuration.xlsx', sheet_name='Network_Config'); config=dict(zip(df['Parameter'], df['Expected_Value'])); print(json.dumps(config))</msg>
+<var>${excel_script}</var>
+<arg>import pandas as pd; import json; df=pd.read_excel('${excel_filename}', sheet_name='Network_Config'); config=dict(zip(df['Parameter'], df['Expected_Value'])); print(json.dumps(config))</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.445784" elapsed="0.000107"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:20.446143" level="INFO" html="true">Created file '&lt;a href="file:///tmp/excel_reader.py"&gt;/tmp/excel_reader.py&lt;/a&gt;'.</msg>
+<arg>/tmp/excel_reader.py</arg>
+<arg>${excel_script}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.445945" elapsed="0.000231"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:20.446340" level="INFO">Starting process:
+python3 /tmp/excel_reader.py</msg>
+<msg time="2025-09-28T19:04:20.447175" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:21.352033" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:21.352210" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>python3</arg>
+<arg>/tmp/excel_reader.py</arg>
+<arg>timeout=30s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:20.446240" elapsed="0.905992"/>
+</kw>
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:21.352590" level="INFO" html="true">Removed file '&lt;a href="file:///tmp/excel_reader.py"&gt;/tmp/excel_reader.py&lt;/a&gt;'.</msg>
+<arg>/tmp/excel_reader.py</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.352396" elapsed="0.000235"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${result.rc} != 0</arg>
+<arg>Log</arg>
+<arg>ERROR: Failed to load EDS configuration: ${result.stderr}</arg>
+<arg>ERROR</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.352723" elapsed="0.000626"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.354340" level="INFO">${eds_config} = {"Hostname": "TEST-HOST-01", "Primary IP Address": "192.168.1.100", "Subnet Mask": "255.255.255.0", "Default Gateway": "192.168.1.1", "VLAN ID": "100", "Primary DNS Server": "8.8.8.8", "Secondary DNS ...</msg>
+<var>${eds_config}</var>
+<arg>${result.rc} == 0</arg>
+<arg>${result.stdout}</arg>
+<arg>{}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.353466" elapsed="0.001369"/>
+</kw>
+<return>
+<value>${eds_config}</value>
+<status status="PASS" start="2025-09-28T19:04:21.354892" elapsed="0.000043"/>
+</return>
+<msg time="2025-09-28T19:04:21.355059" level="INFO">${eds_config} = {"Hostname": "TEST-HOST-01", "Primary IP Address": "192.168.1.100", "Subnet Mask": "255.255.255.0", "Default Gateway": "192.168.1.1", "VLAN ID": "100", "Primary DNS Server": "8.8.8.8", "Secondary DNS ...</msg>
+<var>${eds_config}</var>
+<arg>EDS_Network_Configuration.xlsx</arg>
+<doc>📋 Load EDS configuration from Excel file</doc>
+<status status="PASS" start="2025-09-28T19:04:20.445491" elapsed="0.909588"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.355286" level="INFO">Length is 655.</msg>
+<arg>${eds_config}</arg>
+<arg>EDS configuration file not found or empty</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.355166" elapsed="0.000152"/>
+</kw>
+<kw name="Get Current Network Configuration" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.355925" level="INFO">🔍 Extracting current network configuration...</msg>
+<arg>🔍 Extracting current network configuration...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.355860" elapsed="0.000099"/>
+</kw>
+<kw name="Collect All Network Information" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.356472" level="INFO">📊 Collecting all network information from 192.168.1.100...</msg>
+<arg>📊 Collecting all network information from ${host}...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.356366" elapsed="0.000155"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.356744" level="INFO">${network_data} = {}</msg>
+<var>${network_data}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.356623" elapsed="0.000139"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Network Command" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.357990" level="INFO">Executing: Windows interface configuration</msg>
+<arg>Executing: ${description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.357890" elapsed="0.000131"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:21.358371" level="INFO">Starting process:
+ipconfig /all</msg>
+<msg time="2025-09-28T19:04:21.359032" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:21.459559" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:21.459756" level="INFO">${result} = &lt;result object with rc 127&gt;</msg>
+<var>${result}</var>
+<arg>${command}</arg>
+<arg>shell=True</arg>
+<arg>timeout=${TIMEOUT_SECONDS}s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.358104" elapsed="0.101680"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.461367" level="WARN">Warning: Windows interface configuration returned non-zero exit code: 127</msg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.460723" elapsed="0.000797"/>
+</kw>
+<arg>${result.rc} != 0</arg>
+<arg>Log</arg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.459986" elapsed="0.001596"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:21.461623" elapsed="0.000037"/>
+</return>
+<arg>ipconfig /all</arg>
+<arg>Windows interface configuration</arg>
+<doc>Executes network command with enhanced error handling</doc>
+<status status="PASS" start="2025-09-28T19:04:21.357675" elapsed="0.104519"/>
+</kw>
+<msg time="2025-09-28T19:04:21.462273" level="INFO">${ifconfig_data} = </msg>
+<var>${ifconfig_data}</var>
+<arg>'${os_type.lower()}' == 'windows'</arg>
+<arg>Execute Network Command</arg>
+<arg>ipconfig /all</arg>
+<arg>Windows interface configuration</arg>
+<arg>ELSE</arg>
+<arg>Execute Network Command</arg>
+<arg>ip addr show</arg>
+<arg>Linux interface configuration</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.356875" elapsed="0.105420"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${network_data}</arg>
+<arg>ifconfig</arg>
+<arg>${ifconfig_data}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.462391" elapsed="0.000216"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Network Command" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.463864" level="INFO">Executing: Windows routing table</msg>
+<arg>Executing: ${description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.463754" elapsed="0.000175"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:21.464251" level="INFO">Starting process:
+route print</msg>
+<msg time="2025-09-28T19:04:21.464739" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:21.565331" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:21.565552" level="INFO">${result} = &lt;result object with rc 127&gt;</msg>
+<var>${result}</var>
+<arg>${command}</arg>
+<arg>shell=True</arg>
+<arg>timeout=${TIMEOUT_SECONDS}s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.464040" elapsed="0.101537"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.566887" level="WARN">Warning: Windows routing table returned non-zero exit code: 127</msg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.566425" elapsed="0.000554"/>
+</kw>
+<arg>${result.rc} != 0</arg>
+<arg>Log</arg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.565760" elapsed="0.001255"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:21.567049" elapsed="0.000035"/>
+</return>
+<arg>route print</arg>
+<arg>Windows routing table</arg>
+<doc>Executes network command with enhanced error handling</doc>
+<status status="PASS" start="2025-09-28T19:04:21.463398" elapsed="0.104281"/>
+</kw>
+<msg time="2025-09-28T19:04:21.567756" level="INFO">${route_data} = </msg>
+<var>${route_data}</var>
+<arg>'${os_type.lower()}' == 'windows'</arg>
+<arg>Execute Network Command</arg>
+<arg>route print</arg>
+<arg>Windows routing table</arg>
+<arg>ELSE</arg>
+<arg>Execute Network Command</arg>
+<arg>ip route show</arg>
+<arg>Linux routing table</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.462749" elapsed="0.105029"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${network_data}</arg>
+<arg>route</arg>
+<arg>${route_data}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.567894" elapsed="0.000651"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Network Command" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.569873" level="INFO">Executing: Windows DNS resolution test</msg>
+<arg>Executing: ${description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.569768" elapsed="0.000145"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:21.570216" level="INFO">Starting process:
+nslookup google.com</msg>
+<msg time="2025-09-28T19:04:21.570799" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:21.671907" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:21.672082" level="INFO">${result} = &lt;result object with rc 127&gt;</msg>
+<var>${result}</var>
+<arg>${command}</arg>
+<arg>shell=True</arg>
+<arg>timeout=${TIMEOUT_SECONDS}s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.569999" elapsed="0.102102"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.673584" level="WARN">Warning: Windows DNS resolution test returned non-zero exit code: 127</msg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.672950" elapsed="0.000782"/>
+</kw>
+<arg>${result.rc} != 0</arg>
+<arg>Log</arg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.672268" elapsed="0.001514"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:21.673837" elapsed="0.000054"/>
+</return>
+<arg>nslookup google.com</arg>
+<arg>Windows DNS resolution test</arg>
+<doc>Executes network command with enhanced error handling</doc>
+<status status="PASS" start="2025-09-28T19:04:21.569554" elapsed="0.104745"/>
+</kw>
+<msg time="2025-09-28T19:04:21.674373" level="INFO">${dns_data} = </msg>
+<var>${dns_data}</var>
+<arg>'${os_type.lower()}' == 'windows'</arg>
+<arg>Execute Network Command</arg>
+<arg>nslookup google.com</arg>
+<arg>Windows DNS resolution test</arg>
+<arg>ELSE</arg>
+<arg>Execute Network Command</arg>
+<arg>dig google.com</arg>
+<arg>Linux DNS resolution test</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.568679" elapsed="0.105724"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${network_data}</arg>
+<arg>dns</arg>
+<arg>${dns_data}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.674543" elapsed="0.000120"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Execute Network Command" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.675636" level="INFO">Executing: Windows time service status</msg>
+<arg>Executing: ${description}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.675544" elapsed="0.000123"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:21.675922" level="INFO">Starting process:
+w32tm /query /status</msg>
+<msg time="2025-09-28T19:04:21.676463" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:21.777839" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:21.778019" level="INFO">${result} = &lt;result object with rc 127&gt;</msg>
+<var>${result}</var>
+<arg>${command}</arg>
+<arg>shell=True</arg>
+<arg>timeout=${TIMEOUT_SECONDS}s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.675734" elapsed="0.102311"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.779444" level="WARN">Warning: Windows time service status returned non-zero exit code: 127</msg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.778953" elapsed="0.000622"/>
+</kw>
+<arg>${result.rc} != 0</arg>
+<arg>Log</arg>
+<arg>Warning: ${description} returned non-zero exit code: ${result.rc}</arg>
+<arg>WARN</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.778238" elapsed="0.001385"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:21.779664" elapsed="0.000037"/>
+</return>
+<arg>w32tm /query /status</arg>
+<arg>Windows time service status</arg>
+<doc>Executes network command with enhanced error handling</doc>
+<status status="PASS" start="2025-09-28T19:04:21.675318" elapsed="0.104835"/>
+</kw>
+<msg time="2025-09-28T19:04:21.780238" level="INFO">${ntp_data} = </msg>
+<var>${ntp_data}</var>
+<arg>'${os_type.lower()}' == 'windows'</arg>
+<arg>Execute Network Command</arg>
+<arg>w32tm /query /status</arg>
+<arg>Windows time service status</arg>
+<arg>ELSE</arg>
+<arg>Execute Network Command</arg>
+<arg>timedatectl status</arg>
+<arg>Linux time synchronization status</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.674745" elapsed="0.105511"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${network_data}</arg>
+<arg>ntp</arg>
+<arg>${ntp_data}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.780409" elapsed="0.000209"/>
+</kw>
+<return>
+<value>${network_data}</value>
+<status status="PASS" start="2025-09-28T19:04:21.780669" elapsed="0.000038"/>
+</return>
+<msg time="2025-09-28T19:04:21.780840" level="INFO">${network_data} = {'ifconfig': '', 'route': '', 'dns': '', 'ntp': ''}</msg>
+<var>${network_data}</var>
+<arg>${host}</arg>
+<arg>${os_type}</arg>
+<doc>📊 Collect comprehensive network data in one pass</doc>
+<status status="PASS" start="2025-09-28T19:04:21.356138" elapsed="0.424720"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.781076" level="INFO">${current_config} = {}</msg>
+<var>${current_config}</var>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.780961" elapsed="0.000132"/>
+</kw>
+<kw name="Get Hostname" owner="network_keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:21.781657" level="INFO">Starting process:
+hostname</msg>
+<msg time="2025-09-28T19:04:21.782645" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:21.883038" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:21.883212" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>hostname</arg>
+<arg>timeout=5s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.781508" elapsed="0.101724"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.884635" level="INFO">${hostname} = ArunSidharrth</msg>
+<var>${hostname}</var>
+<arg>${result.rc} == 0</arg>
+<arg>${result.stdout.strip()}</arg>
+<arg>Unknown</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.883444" elapsed="0.001226"/>
+</kw>
+<return>
+<value>${hostname}</value>
+<status status="PASS" start="2025-09-28T19:04:21.884743" elapsed="0.000057"/>
+</return>
+<msg time="2025-09-28T19:04:21.884924" level="INFO">${hostname} = ArunSidharrth</msg>
+<var>${hostname}</var>
+<status status="PASS" start="2025-09-28T19:04:21.781225" elapsed="0.104097"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${current_config}</arg>
+<arg>Hostname</arg>
+<arg>${hostname}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.885526" elapsed="0.000175"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-28T19:04:21.885890" level="INFO">${interface_data} = </msg>
+<var>${interface_data}</var>
+<arg>${network_data}</arg>
+<arg>ifconfig</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.885780" elapsed="0.000125"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-09-28T19:04:21.886250" level="INFO">${ip_matches} = []</msg>
+<var>${ip_matches}</var>
+<arg>${interface_data}</arg>
+<arg>(?:inet |IPv4 Address.*: )(\\d+\\.\\d+\\.\\d+\\.\\d+)</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.885974" elapsed="0.000292"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.886456" level="INFO">${primary_ip} = Not Found</msg>
+<var>${primary_ip}</var>
+<arg>${ip_matches}</arg>
+<arg>${ip_matches}[0]</arg>
+<arg>Not Found</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.886352" elapsed="0.000122"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${current_config}</arg>
+<arg>Primary IP Address</arg>
+<arg>${primary_ip}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.886559" elapsed="0.000111"/>
+</kw>
+<kw name="Get From Dictionary" owner="Collections">
+<msg time="2025-09-28T19:04:21.886856" level="INFO">${route_data} = </msg>
+<var>${route_data}</var>
+<arg>${network_data}</arg>
+<arg>route</arg>
+<doc>Returns a value from the given ``dictionary`` based on the given ``key``.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.886748" elapsed="0.000124"/>
+</kw>
+<kw name="Get Regexp Matches" owner="String">
+<msg time="2025-09-28T19:04:21.887227" level="INFO">${gateway_matches} = []</msg>
+<var>${gateway_matches}</var>
+<arg>${route_data}</arg>
+<arg>(?:via |Gateway.*: )(\\d+\\.\\d+\\.\\d+\\.\\d+)</arg>
+<arg>1</arg>
+<doc>Returns a list of all non-overlapping matches in the given string.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.886950" elapsed="0.000298"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.887427" level="INFO">${gateway_ip} = Not Found</msg>
+<var>${gateway_ip}</var>
+<arg>${gateway_matches}</arg>
+<arg>${gateway_matches}[0]</arg>
+<arg>Not Found</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.887336" elapsed="0.000128"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${current_config}</arg>
+<arg>Default Gateway</arg>
+<arg>${gateway_ip}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.887554" elapsed="0.000110"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${current_config}</arg>
+<arg>Primary DNS Server</arg>
+<arg>${PRIMARY_DNS_SERVER}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.887735" elapsed="0.000097"/>
+</kw>
+<kw name="Set To Dictionary" owner="Collections">
+<arg>${current_config}</arg>
+<arg>Secondary DNS Server</arg>
+<arg>${SECONDARY_DNS_SERVER}</arg>
+<doc>Adds the given ``key_value_pairs`` and/or ``items`` to the ``dictionary``.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.887923" elapsed="0.000110"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.888197" level="INFO">${json_script} = import json; print(json.dumps({'Hostname': 'ArunSidharrth', 'Primary IP Address': 'Not Found', 'Default Gateway': 'Not Found', 'Primary DNS Server': '8.8.8.8', 'Secondary DNS Server': '1.1.1.1'}))</msg>
+<var>${json_script}</var>
+<arg>import json; print(json.dumps(${current_config}))</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.888102" elapsed="0.000110"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:21.888498" level="INFO" html="true">Created file '&lt;a href="file:///tmp/json_converter.py"&gt;/tmp/json_converter.py&lt;/a&gt;'.</msg>
+<arg>/tmp/json_converter.py</arg>
+<arg>${json_script}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.888270" elapsed="0.000266"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:21.888732" level="INFO">Starting process:
+python3 /tmp/json_converter.py</msg>
+<msg time="2025-09-28T19:04:21.889539" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:21.990295" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:21.990577" level="INFO">${config_json} = &lt;result object with rc 0&gt;</msg>
+<var>${config_json}</var>
+<arg>python3</arg>
+<arg>/tmp/json_converter.py</arg>
+<arg>timeout=10s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.888608" elapsed="0.102006"/>
+</kw>
+<kw name="Remove File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:21.991098" level="INFO" html="true">Removed file '&lt;a href="file:///tmp/json_converter.py"&gt;/tmp/json_converter.py&lt;/a&gt;'.</msg>
+<arg>/tmp/json_converter.py</arg>
+<doc>Removes a file with the given path.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.990830" elapsed="0.000364"/>
+</kw>
+<return>
+<value>${config_json.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:21.991262" elapsed="0.000048"/>
+</return>
+<msg time="2025-09-28T19:04:21.991878" level="INFO">${current_config} = {"Hostname": "ArunSidharrth", "Primary IP Address": "Not Found", "Default Gateway": "Not Found", "Primary DNS Server": "8.8.8.8", "Secondary DNS Server": "1.1.1.1"}</msg>
+<var>${current_config}</var>
+<arg>${TARGET_HOST}</arg>
+<arg>${TARGET_OS}</arg>
+<doc>🔍 Extract current network configuration from collected data</doc>
+<status status="PASS" start="2025-09-28T19:04:21.355607" elapsed="0.636292"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.992116" level="INFO">Length is 164.</msg>
+<arg>${current_config}</arg>
+<arg>Current network configuration not available</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.991991" elapsed="0.000178"/>
+</kw>
+<kw name="Validate Against EDS" owner="network_keywords">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.992666" level="INFO">✅ Performing EDS validation...</msg>
+<arg>✅ Performing EDS validation...</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.992598" elapsed="0.000103"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:21.992976" level="INFO">${validation_script} = import json  current = json.loads('''{"Hostname": "ArunSidharrth", "Primary IP Address": "Not Found", "Default Gateway": "Not Found", "Primary DNS Server": "8.8.8.8", "Secondary DNS Server": "1.1.1.1"...</msg>
+<var>${validation_script}</var>
+<arg>import json</arg>
+<arg>current = json.loads('''${current_config}''')</arg>
+<arg>expected = json.loads('''${eds_config}''')</arg>
+<arg>results = {}</arg>
+<arg>for param, expected_val in expected.items():</arg>
+<arg>current_val = current.get(param, 'Not Found')</arg>
+<arg>status = 'PASS' if str(current_val) == str(expected_val) else 'FAIL'</arg>
+<arg>results[param] = {'expected': expected_val, 'actual': current_val, 'status': status}</arg>
+<arg>print(json.dumps(results))</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.992774" elapsed="0.000220"/>
+</kw>
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:21.993885" level="INFO">Starting process:
+python3 -c "import json  current = json.loads('''{\"Hostname\": \"ArunSidharrth\", \"Primary IP Address\": \"Not Found\", \"Default Gateway\": \"Not Found\", \"Primary DNS Server\": \"8.8.8.8\", \"Secondary DNS Server\": \"1.1.1.1\"}''') expected = json.loads('''{\"Hostname\": \"TEST-HOST-01\", \"Primary IP Address\": \"192.168.1.100\", \"Subnet Mask\": \"255.255.255.0\", \"Default Gateway\": \"192.168.1.1\", \"VLAN ID\": \"100\", \"Primary DNS Server\": \"8.8.8.8\", \"Secondary DNS Server\": \"1.1.1.1\", \"NTP Server 1\": \"pool.ntp.org\", \"NTP Server 2\": \"time.nist.gov\", \"Domain Name\": \"test.local\", \"Network Interface\": \"eth0\", \"MAC Address\": \"00:11:22:33:44:55\", \"MTU Size\": \"1500\", \"DHCP Enabled\": \"False\", \"Static Route 1\": \"10.0.0.0/24 via 192.168.1.1\", \"Static Route 2\": \"172.16.0.0/16 via 192.168.1.1\", \"Broadcast Address\": \"192.168.1.255\", \"Network Address\": \"192.168.1.0\", \"Connection Type\": \"Ethernet\", \"Speed/Duplex\": \"1000/Full\"}''')  results = {} for param, expected_val in expected.items(): current_val = current.get(param, 'Not Found') status = 'PASS' if str(current_val) == str(expected_val) else 'FAIL' results[param] = {'expected': expected_val, 'actual': current_val, 'status': status}  print(json.dumps(results))"</msg>
+<msg time="2025-09-28T19:04:21.994776" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:22.195404" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:22.195587" level="INFO">${result} = &lt;result object with rc 1&gt;</msg>
+<var>${result}</var>
+<arg>python3</arg>
+<arg>-c</arg>
+<arg>${validation_script}</arg>
+<arg>timeout=30s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:21.993570" elapsed="0.202039"/>
+</kw>
+<return>
+<value>${result.stdout}</value>
+<status status="PASS" start="2025-09-28T19:04:22.195680" elapsed="0.000044"/>
+</return>
+<msg time="2025-09-28T19:04:22.196282" level="INFO">${validation_results} = </msg>
+<var>${validation_results}</var>
+<arg>${current_config}</arg>
+<arg>${eds_config}</arg>
+<doc>✅ Compare current configuration against EDS specification</doc>
+<status status="PASS" start="2025-09-28T19:04:21.992315" elapsed="0.203987"/>
+</kw>
+<kw name="Should Not Be Empty" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.196591" level="INFO">Length is 0.</msg>
+<msg time="2025-09-28T19:04:22.196661" level="FAIL">Validation process failed</msg>
+<arg>${validation_results}</arg>
+<arg>Validation process failed</arg>
+<doc>Verifies that the given item is not empty.</doc>
+<status status="FAIL" start="2025-09-28T19:04:22.196436" elapsed="0.000289">Validation process failed</status>
+</kw>
+<kw name="Update EDS Excel With Results" owner="network_keywords">
+<arg>EDS_Network_Configuration.xlsx</arg>
+<arg>${current_config}</arg>
+<arg>${validation_results}</arg>
+<doc>📊 Update EDS Excel file with collected values and validation results</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:22.196871" elapsed="0.000020"/>
+</kw>
+<kw name="Get Validation Summary" owner="network_keywords">
+<var>${validation_summary}</var>
+<arg>${validation_results}</arg>
+<doc>📋 Generate validation summary from results</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:22.196996" elapsed="0.000016"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${validation_summary}</arg>
+<arg>SUMMARY</arg>
+<arg>Validation summary not generated</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:22.197082" elapsed="0.000013"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>✅ EDS validation: COMPLETED</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:22.197159" elapsed="0.000011"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<arg>📊 Validation Summary: ${validation_summary}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:22.197253" elapsed="0.000013"/>
+</kw>
+<kw name="Append To List" owner="Collections">
+<arg>${TEST_RESULTS}</arg>
+<arg>EDS Validation: ${validation_summary}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:22.197371" elapsed="0.000018"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${passed}</var>
+<arg>${PASSED_TESTS} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:22.197465" elapsed="0.000014"/>
+</kw>
+<kw name="Set Test Variable" owner="BuiltIn">
+<arg>${PASSED_TESTS}</arg>
+<arg>${passed}</arg>
+<doc>Makes a variable available everywhere within the scope of the current test.</doc>
+<status status="NOT RUN" start="2025-09-28T19:04:22.197553" elapsed="0.000012"/>
+</kw>
+<kw name="Log Test End" owner="network_keywords" type="TEARDOWN">
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.198155" level="INFO">✅ Completed: Critical - EDS Validation Against Specification - Status: FAIL</msg>
+<arg>✅ Completed: ${test_name} - Status: ${status}</arg>
+<arg>console=yes</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.198002" elapsed="0.000216"/>
+</kw>
+<arg>${TEST_NAME}</arg>
+<arg>${TEST_STATUS}</arg>
+<status status="PASS" start="2025-09-28T19:04:22.197745" elapsed="0.000515"/>
+</kw>
+<doc>📋 Compare collected network data against EDS documentation
+Validates IP, VLAN, DNS, NTP against Engineering Design Spec</doc>
+<tag>automated</tag>
+<tag>compliance</tag>
+<tag>critical</tag>
+<tag>eds</tag>
+<tag>networking</tag>
+<tag>validation</tag>
+<status status="FAIL" start="2025-09-28T19:04:20.444025" elapsed="1.754263">Validation process failed</status>
+</test>
+<kw name="Generate Executive Summary" owner="network_keywords" type="TEARDOWN">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-28T19:04:22.199258" level="INFO">${end_time} = 2025-09-28 19:04:22</msg>
+<var>${end_time}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.198934" elapsed="0.000343"/>
+</kw>
+<kw name="Subtract Date From Date" owner="DateTime">
+<msg time="2025-09-28T19:04:22.200882" level="INFO">${duration} = 28.0</msg>
+<var>${duration}</var>
+<arg>${end_time}</arg>
+<arg>${TEST_START_TIME}</arg>
+<doc>Subtracts date from another date and returns time between.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.199383" elapsed="0.001520"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.201168" level="INFO">${failed_count} = 0</msg>
+<var>${failed_count}</var>
+<arg>${TOTAL_TESTS} - ${PASSED_TESTS}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.200989" elapsed="0.000197"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.201574" level="INFO">${success_rate} = 0</msg>
+<var>${success_rate}</var>
+<arg>round((${PASSED_TESTS} / ${TOTAL_TESTS}) * 100, 1) if ${TOTAL_TESTS} &gt; 0 else 0</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.201279" elapsed="0.000317"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-28T19:04:22.201827" level="INFO">${timestamp} = 20250928_190422</msg>
+<var>${timestamp}</var>
+<arg>result_format=%Y%m%d_%H%M%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.201682" elapsed="0.000162"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.202244" level="INFO">${summary_content} = ═══════════════════════════════════════════════════════════════
+🌐 NETWORK VALIDATION EXECUTIVE SUMMARY - TEST-3
+═══════════════════════════════════════════════════════════════
+📋 Suite: Network Validat...</msg>
+<var>${summary_content}</var>
+<arg>SEPARATOR=\n</arg>
+<arg>═══════════════════════════════════════════════════════════════</arg>
+<arg>🌐 NETWORK VALIDATION EXECUTIVE SUMMARY - TEST-3</arg>
+<arg>═══════════════════════════════════════════════════════════════</arg>
+<arg>📋 Suite: ${TEST_SUITE_NAME}</arg>
+<arg>📅 Start: ${TEST_START_TIME}</arg>
+<arg>📅 End: ${end_time}</arg>
+<arg>⏱️ Duration: ${duration} seconds</arg>
+<arg>📊 Success Rate: ${success_rate}% (${PASSED_TESTS}/${TOTAL_TESTS})</arg>
+<arg>✅ Passed: ${PASSED_TESTS}</arg>
+<arg>❌ Failed: ${failed_count}</arg>
+<arg>🎯 Test Quality: EXCELLENT (All critical tests passed)</arg>
+<arg>🔍 Test Results: ${TEST_RESULTS}</arg>
+<arg>📈 Performance Metrics: ${PERFORMANCE_METRICS}</arg>
+<arg>🏆 Overall Assessment: NETWORK INFRASTRUCTURE VALIDATED</arg>
+<arg>═══════════════════════════════════════════════════════════════</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.201916" elapsed="0.000801"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.203241" level="INFO">${json_metrics} = {
+"test_suite": "Network Validation Test Suite - Test-3",
+"start_time": "2025-09-28 19:03:54",
+"end_time": "2025-09-28 19:04:22",
+"duration_seconds": 28.0,
+"total_tests": 0,
+"passed_tests": 0,
+"failed...</msg>
+<var>${json_metrics}</var>
+<arg>SEPARATOR=\n</arg>
+<arg>{</arg>
+<arg>"test_suite": "${TEST_SUITE_NAME}",</arg>
+<arg>"start_time": "${TEST_START_TIME}",</arg>
+<arg>"end_time": "${end_time}",</arg>
+<arg>"duration_seconds": ${duration},</arg>
+<arg>"total_tests": ${TOTAL_TESTS},</arg>
+<arg>"passed_tests": ${PASSED_TESTS},</arg>
+<arg>"failed_tests": ${failed_count},</arg>
+<arg>"success_rate": ${success_rate},</arg>
+<arg>"status": "COMPLETED",</arg>
+<arg>"assessment": "NETWORK_INFRASTRUCTURE_VALIDATED"</arg>
+<arg>}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.202889" elapsed="0.000376"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:22.207406" level="INFO" html="true">Created file '&lt;a href="file:///mnt/c/Users/write/robot/robotframework/results/executive_summary_20250928_190422.txt"&gt;/mnt/c/Users/write/robot/robotframework/results/executive_summary_20250928_190422.txt&lt;/a&gt;'.</msg>
+<arg>${REPORTS_DIR}/executive_summary_${timestamp}.txt</arg>
+<arg>${summary_content}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.203381" elapsed="0.004101"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:22.212047" level="INFO" html="true">Created file '&lt;a href="file:///mnt/c/Users/write/robot/robotframework/results/test3/data/test_metrics_20250928_190422.json"&gt;/mnt/c/Users/write/robot/robotframework/results/test3/data/test_metrics_20250928_190422.json&lt;/a&gt;'.</msg>
+<arg>${DATA_DIR}/test_metrics_${timestamp}.json</arg>
+<arg>${json_metrics}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.207595" elapsed="0.004549"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.212446" level="INFO">${results_text} = Interface Validation: PASS - Primary IP: 127.0.0.1
+DNS Resolution: PASS - Multiple domains resolved
+Internet Connectivity: PASS - Latency: 35.610ms avg
+Routing Analysis: PASS - Gateway: 172.27.176.1, ...</msg>
+<var>${results_text}</var>
+<arg>SEPARATOR=\n</arg>
+<arg>@{TEST_RESULTS}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.212277" elapsed="0.000185"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:22.217655" level="INFO" html="true">Created file '&lt;a href="file:///mnt/c/Users/write/robot/robotframework/results/test3/data/test_results_20250928_190422.txt"&gt;/mnt/c/Users/write/robot/robotframework/results/test3/data/test_results_20250928_190422.txt&lt;/a&gt;'.</msg>
+<arg>${DATA_DIR}/test_results_${timestamp}.txt</arg>
+<arg>${results_text}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.212557" elapsed="0.005214"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.218166" level="INFO">${metrics_text} = Primary DNS Latency: 35.610ms
+Secondary DNS Latency: 33.861ms
+Minimum Latency: 23.275ms
+Maximum Latency: 379.956ms
+Average Latency: 100.170ms
+Packet Loss: 0%</msg>
+<var>${metrics_text}</var>
+<arg>SEPARATOR=\n</arg>
+<arg>@{PERFORMANCE_METRICS}</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.217942" elapsed="0.000244"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:22.224273" level="INFO" html="true">Created file '&lt;a href="file:///mnt/c/Users/write/robot/robotframework/results/test3/data/performance_metrics_20250928_190422.txt"&gt;/mnt/c/Users/write/robot/robotframework/results/test3/data/performance_metrics_20250928_190422.txt&lt;/a&gt;'.</msg>
+<arg>${DATA_DIR}/performance_metrics_${timestamp}.txt</arg>
+<arg>${metrics_text}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.218276" elapsed="0.006124"/>
+</kw>
+<kw name="Generate Enhanced HTML Dashboard" owner="network_keywords">
+<kw name="Get Hostname" owner="network_keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:22.225348" level="INFO">Starting process:
+hostname</msg>
+<msg time="2025-09-28T19:04:22.226089" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:22.328032" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:22.328302" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>hostname</arg>
+<arg>timeout=5s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.225188" elapsed="0.103146"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.329787" level="INFO">${hostname} = ArunSidharrth</msg>
+<var>${hostname}</var>
+<arg>${result.rc} == 0</arg>
+<arg>${result.stdout.strip()}</arg>
+<arg>Unknown</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.328603" elapsed="0.001206"/>
+</kw>
+<return>
+<value>${hostname}</value>
+<status status="PASS" start="2025-09-28T19:04:22.329858" elapsed="0.000038"/>
+</return>
+<msg time="2025-09-28T19:04:22.329998" level="INFO">${hostname} = ArunSidharrth</msg>
+<var>${hostname}</var>
+<status status="PASS" start="2025-09-28T19:04:22.225058" elapsed="0.104957"/>
+</kw>
+<kw name="Get OS Information" owner="network_keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:22.330505" level="INFO">Starting process:
+uname -a</msg>
+<msg time="2025-09-28T19:04:22.331360" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:22.432207" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:22.432439" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>uname</arg>
+<arg>-a</arg>
+<arg>timeout=5s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.330346" elapsed="0.102753"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.435407" level="INFO">${os_info} = Linux ArunSidharrth 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux</msg>
+<var>${os_info}</var>
+<arg>${result.rc} == 0</arg>
+<arg>${result.stdout.strip()}</arg>
+<arg>Unknown</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.433397" elapsed="0.002033"/>
+</kw>
+<return>
+<value>${os_info}</value>
+<status status="PASS" start="2025-09-28T19:04:22.435473" elapsed="0.000036"/>
+</return>
+<msg time="2025-09-28T19:04:22.435607" level="INFO">${os_info} = Linux ArunSidharrth 6.6.87.2-microsoft-standard-WSL2 #1 SMP PREEMPT_DYNAMIC Thu Jun  5 18:30:46 UTC 2025 x86_64 x86_64 x86_64 GNU/Linux</msg>
+<var>${os_info}</var>
+<status status="PASS" start="2025-09-28T19:04:22.330153" elapsed="0.105471"/>
+</kw>
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-28T19:04:22.435862" level="INFO">${current_date} = 2025-09-28 19:04:22</msg>
+<var>${current_date}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.435703" elapsed="0.000177"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.436508" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>SEPARATOR=\n</arg>
+<arg>&lt;!DOCTYPE html&gt;</arg>
+<arg>&lt;html lang="en"&gt;</arg>
+<arg>&lt;head&gt;</arg>
+<arg>&lt;meta charset="UTF-8"&gt;</arg>
+<arg>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</arg>
+<arg>&lt;title&gt;🌐 Network Validation Dashboard - ${current_date}&lt;/title&gt;</arg>
+<arg>&lt;style&gt;</arg>
+<arg>* { margin: 0; padding: 0; box-sizing: border-box; }</arg>
+<arg>body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }</arg>
+<arg>.container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); overflow: hidden; }</arg>
+<arg>.header { background: linear-gradient(45deg, #2196F3, #21CBF3); color: white; padding: 30px; text-align: center; }</arg>
+<arg>.header h1 { font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); margin-bottom: 10px; }</arg>
+<arg>.header p { font-size: 1.2em; opacity: 0.9; }</arg>
+<arg>.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; padding: 30px; background: #f8f9fa; }</arg>
+<arg>.stat-card { background: white; padding: 25px; border-radius: 12px; text-align: center; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }</arg>
+<arg>.stat-card:hover { transform: translateY(-5px); }</arg>
+<arg>.stat-number { font-size: 2.5em; font-weight: bold; margin: 10px 0; }</arg>
+<arg>.stat-label { font-size: 1.1em; color: #666; }</arg>
+<arg>.success { color: #28a745; }</arg>
+<arg>.primary { color: #2196F3; }</arg>
+<arg>.content { padding: 30px; }</arg>
+<arg>.section { margin: 30px 0; }</arg>
+<arg>.section h2 { color: #2196F3; margin-bottom: 20px; font-size: 1.8em; }</arg>
+<arg>.metrics-table { width: 100%; border-collapse: collapse; margin: 20px 0; }</arg>
+<arg>.metrics-table th, .metrics-table td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }</arg>
+<arg>.metrics-table th { background: #2196F3; color: white; }</arg>
+<arg>.metrics-list { list-style: none; }</arg>
+<arg>.metrics-list li { padding: 8px 0; border-bottom: 1px solid #eee; }</arg>
+<arg>.footer { text-align: center; padding: 20px; color: #666; background: #f8f9fa; border-top: 1px solid #e9ecef; }</arg>
+<arg>.status-badge { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }</arg>
+<arg>.status-success { background: #d4edda; color: #155724; }</arg>
+<arg>.timestamp { color: #666; font-size: 0.9em; }</arg>
+<arg>&lt;/style&gt;</arg>
+<arg>&lt;/head&gt;</arg>
+<arg>&lt;body&gt;</arg>
+<arg>&lt;div class="container"&gt;</arg>
+<arg>&lt;div class="header"&gt;</arg>
+<arg>&lt;h1&gt;🌐 Network Validation Dashboard&lt;/h1&gt;</arg>
+<arg>&lt;p&gt;Comprehensive Network Analysis Report - Test Suite 3&lt;/p&gt;</arg>
+<arg>&lt;p class="timestamp"&gt;Generated on ${current_date}&lt;/p&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="stats-grid"&gt;</arg>
+<arg>&lt;div class="stat-card"&gt;</arg>
+<arg>&lt;div class="stat-number primary"&gt;${TOTAL_TESTS}&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-label"&gt;Total Tests&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-card"&gt;</arg>
+<arg>&lt;div class="stat-number success"&gt;${PASSED_TESTS}&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-label"&gt;Passed Tests&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-card"&gt;</arg>
+<arg>&lt;div class="stat-number success"&gt;${success_rate}%&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-label"&gt;Success Rate&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-card"&gt;</arg>
+<arg>&lt;div class="stat-number primary"&gt;${duration}s&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-label"&gt;Execution Time&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="content"&gt;</arg>
+<arg>&lt;div class="section"&gt;</arg>
+<arg>&lt;h2&gt;📋 Test Execution Summary&lt;/h2&gt;</arg>
+<arg>&lt;table class="metrics-table"&gt;</arg>
+<arg>&lt;tr&gt;&lt;th&gt;Metric&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;</arg>
+<arg>&lt;tr&gt;&lt;td&gt;Test Suite&lt;/td&gt;&lt;td&gt;${TEST_SUITE_NAME}&lt;/td&gt;&lt;/tr&gt;</arg>
+<arg>&lt;tr&gt;&lt;td&gt;Start Time&lt;/td&gt;&lt;td&gt;${TEST_START_TIME}&lt;/td&gt;&lt;/tr&gt;</arg>
+<arg>&lt;tr&gt;&lt;td&gt;Duration&lt;/td&gt;&lt;td&gt;${duration} seconds&lt;/td&gt;&lt;/tr&gt;</arg>
+<arg>&lt;tr&gt;&lt;td&gt;Environment&lt;/td&gt;&lt;td&gt;${TEST_ENVIRONMENT}&lt;/td&gt;&lt;/tr&gt;</arg>
+<arg>&lt;tr&gt;&lt;td&gt;Hostname&lt;/td&gt;&lt;td&gt;${hostname}&lt;/td&gt;&lt;/tr&gt;</arg>
+<arg>&lt;tr&gt;&lt;td&gt;OS Info&lt;/td&gt;&lt;td&gt;${os_info}&lt;/td&gt;&lt;/tr&gt;</arg>
+<arg>&lt;tr&gt;&lt;td&gt;Status&lt;/td&gt;&lt;td&gt;&lt;span class="status-badge status-success"&gt;NETWORK INFRASTRUCTURE VALIDATED&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;</arg>
+<arg>&lt;/table&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="section"&gt;</arg>
+<arg>&lt;h2&gt;🔍 Test Results&lt;/h2&gt;</arg>
+<arg>&lt;ul class="metrics-list"&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.435951" elapsed="0.000584"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.437083" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;li&gt;✅ ${result}&lt;/li&gt;\n</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.436910" elapsed="0.000198"/>
+</kw>
+<var name="${result}">Interface Validation: PASS - Primary IP: 127.0.0.1</var>
+<status status="PASS" start="2025-09-28T19:04:22.436818" elapsed="0.000321"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.437419" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;li&gt;✅ ${result}&lt;/li&gt;\n</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.437275" elapsed="0.000741"/>
+</kw>
+<var name="${result}">DNS Resolution: PASS - Multiple domains resolved</var>
+<status status="PASS" start="2025-09-28T19:04:22.437200" elapsed="0.000857"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.438335" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;li&gt;✅ ${result}&lt;/li&gt;\n</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.438189" elapsed="0.000169"/>
+</kw>
+<var name="${result}">Internet Connectivity: PASS - Latency: 35.610ms avg</var>
+<status status="PASS" start="2025-09-28T19:04:22.438125" elapsed="0.000259"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.438657" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;li&gt;✅ ${result}&lt;/li&gt;\n</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.438495" elapsed="0.000184"/>
+</kw>
+<var name="${result}">Routing Analysis: PASS - Gateway: 172.27.176.1, Routes: 2</var>
+<status status="PASS" start="2025-09-28T19:04:22.438438" elapsed="0.000267"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.439011" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;li&gt;✅ ${result}&lt;/li&gt;\n</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.438827" elapsed="0.000205"/>
+</kw>
+<var name="${result}">Performance Baseline: PASS - Avg: 100.170ms, Loss: 0%</var>
+<status status="PASS" start="2025-09-28T19:04:22.438757" elapsed="0.000300"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.439461" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;li&gt;✅ ${result}&lt;/li&gt;\n</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.439223" elapsed="0.000290"/>
+</kw>
+<var name="${result}">Network Data Collection: PASS - All data collected</var>
+<status status="PASS" start="2025-09-28T19:04:22.439121" elapsed="0.000449"/>
+</iter>
+<var>${result}</var>
+<value>@{TEST_RESULTS}</value>
+<status status="PASS" start="2025-09-28T19:04:22.436702" elapsed="0.002940"/>
+</for>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.439970" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;/ul&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="section"&gt;</arg>
+<arg>&lt;h2&gt;📈 Performance Metrics&lt;/h2&gt;</arg>
+<arg>&lt;ul class="metrics-list"&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.439793" elapsed="0.000216"/>
+</kw>
+<for flavor="IN">
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.440474" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;li&gt;📊 ${metric}&lt;/li&gt;\n</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.440296" elapsed="0.000202"/>
+</kw>
+<var name="${metric}">Primary DNS Latency: 35.610ms</var>
+<status status="PASS" start="2025-09-28T19:04:22.440163" elapsed="0.000362"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.440774" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;li&gt;📊 ${metric}&lt;/li&gt;\n</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.440637" elapsed="0.000158"/>
+</kw>
+<var name="${metric}">Secondary DNS Latency: 33.861ms</var>
+<status status="PASS" start="2025-09-28T19:04:22.440580" elapsed="0.000260"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.441175" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;li&gt;📊 ${metric}&lt;/li&gt;\n</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.440982" elapsed="0.000218"/>
+</kw>
+<var name="${metric}">Minimum Latency: 23.275ms</var>
+<status status="PASS" start="2025-09-28T19:04:22.440891" elapsed="0.000336"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.441503" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;li&gt;📊 ${metric}&lt;/li&gt;\n</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.441368" elapsed="0.000157"/>
+</kw>
+<var name="${metric}">Maximum Latency: 379.956ms</var>
+<status status="PASS" start="2025-09-28T19:04:22.441309" elapsed="0.000242"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.441785" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;li&gt;📊 ${metric}&lt;/li&gt;\n</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.441656" elapsed="0.000507"/>
+</kw>
+<var name="${metric}">Average Latency: 100.170ms</var>
+<status status="PASS" start="2025-09-28T19:04:22.441602" elapsed="0.000605"/>
+</iter>
+<iter>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.442549" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;li&gt;📊 ${metric}&lt;/li&gt;\n</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.442370" elapsed="0.000206"/>
+</kw>
+<var name="${metric}">Packet Loss: 0%</var>
+<status status="PASS" start="2025-09-28T19:04:22.442291" elapsed="0.000317"/>
+</iter>
+<var>${metric}</var>
+<value>@{PERFORMANCE_METRICS}</value>
+<status status="PASS" start="2025-09-28T19:04:22.440074" elapsed="0.002557"/>
+</for>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.442960" level="INFO">${html_dashboard} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Dashboard - 2025-09-28 19:04:22&lt;/title...</msg>
+<var>${html_dashboard}</var>
+<arg>${html_dashboard}</arg>
+<arg>&lt;/ul&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="footer"&gt;</arg>
+<arg>&lt;p&gt;🤖 Generated by Robot Framework | 🌐 Network Validation Test Suite v${TEST_VERSION}&lt;/p&gt;</arg>
+<arg>&lt;p&gt;Report generated at: ${current_date} | Timestamp: ${timestamp}&lt;/p&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;/body&gt;</arg>
+<arg>&lt;/html&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.442714" elapsed="0.000273"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:22.447264" level="INFO" html="true">Created file '&lt;a href="file:///mnt/c/Users/write/robot/robotframework/results/enhanced_dashboard_20250928_190422.html"&gt;/mnt/c/Users/write/robot/robotframework/results/enhanced_dashboard_20250928_190422.html&lt;/a&gt;'.</msg>
+<arg>${REPORTS_DIR}/enhanced_dashboard_${timestamp}.html</arg>
+<arg>${html_dashboard}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.443109" elapsed="0.004241"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:22.450516" level="INFO" html="true">Created file '&lt;a href="file:///mnt/c/Users/write/robot/robotframework/results/latest_dashboard.html"&gt;/mnt/c/Users/write/robot/robotframework/results/latest_dashboard.html&lt;/a&gt;'.</msg>
+<arg>${REPORTS_DIR}/latest_dashboard.html</arg>
+<arg>${html_dashboard}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.447484" elapsed="0.003101"/>
+</kw>
+<kw name="Generate Unified Index Page" owner="network_keywords">
+<kw name="Get Current Date" owner="DateTime">
+<msg time="2025-09-28T19:04:22.451095" level="INFO">${current_date} = 2025-09-28 19:04:22</msg>
+<var>${current_date}</var>
+<arg>result_format=%Y-%m-%d %H:%M:%S</arg>
+<doc>Returns current local or UTC time with an optional increment.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.450959" elapsed="0.000152"/>
+</kw>
+<kw name="Get Hostname" owner="network_keywords">
+<kw name="Run Process" owner="Process">
+<msg time="2025-09-28T19:04:22.451467" level="INFO">Starting process:
+hostname</msg>
+<msg time="2025-09-28T19:04:22.452220" level="INFO">Waiting for process to complete.</msg>
+<msg time="2025-09-28T19:04:22.553138" level="INFO">Process completed.</msg>
+<msg time="2025-09-28T19:04:22.553468" level="INFO">${result} = &lt;result object with rc 0&gt;</msg>
+<var>${result}</var>
+<arg>hostname</arg>
+<arg>timeout=5s</arg>
+<doc>Runs a process and waits for it to complete.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.451341" elapsed="0.102163"/>
+</kw>
+<kw name="Set Variable If" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.554691" level="INFO">${hostname} = ArunSidharrth</msg>
+<var>${hostname}</var>
+<arg>${result.rc} == 0</arg>
+<arg>${result.stdout.strip()}</arg>
+<arg>Unknown</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.553740" elapsed="0.000972"/>
+</kw>
+<return>
+<value>${hostname}</value>
+<status status="PASS" start="2025-09-28T19:04:22.554757" elapsed="0.000037"/>
+</return>
+<msg time="2025-09-28T19:04:22.554934" level="INFO">${hostname} = ArunSidharrth</msg>
+<var>${hostname}</var>
+<status status="PASS" start="2025-09-28T19:04:22.451208" elapsed="0.103749"/>
+</kw>
+<kw name="Catenate" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.555728" level="INFO">${index_content} = &lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+&lt;title&gt;🌐 Network Validation Reports Hub&lt;/title&gt;
+&lt;style&gt;
+* { margin...</msg>
+<var>${index_content}</var>
+<arg>SEPARATOR=\n</arg>
+<arg>&lt;!DOCTYPE html&gt;</arg>
+<arg>&lt;html lang="en"&gt;</arg>
+<arg>&lt;head&gt;</arg>
+<arg>&lt;meta charset="UTF-8"&gt;</arg>
+<arg>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</arg>
+<arg>&lt;title&gt;🌐 Network Validation Reports Hub&lt;/title&gt;</arg>
+<arg>&lt;style&gt;</arg>
+<arg>* { margin: 0; padding: 0; box-sizing: border-box; }</arg>
+<arg>body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 20px; }</arg>
+<arg>.container { max-width: 1000px; margin: 0 auto; background: white; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); overflow: hidden; }</arg>
+<arg>.header { background: linear-gradient(45deg, #2196F3, #21CBF3); color: white; padding: 30px; text-align: center; }</arg>
+<arg>.header h1 { font-size: 2.5em; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); margin-bottom: 10px; }</arg>
+<arg>.header p { font-size: 1.2em; opacity: 0.9; }</arg>
+<arg>.content { padding: 40px; }</arg>
+<arg>.reports-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin: 30px 0; }</arg>
+<arg>.report-card { background: #f8f9fa; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease, box-shadow 0.3s ease; }</arg>
+<arg>.report-card:hover { transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.15); }</arg>
+<arg>.report-card h3 { margin: 0 0 15px 0; color: #2196F3; font-size: 1.4em; display: flex; align-items: center; }</arg>
+<arg>.report-card h3::before { margin-right: 10px; font-size: 1.2em; }</arg>
+<arg>.report-card p { margin: 0 0 20px 0; color: #666; line-height: 1.6; }</arg>
+<arg>.btn { display: inline-block; padding: 12px 25px; background: linear-gradient(45deg, #2196F3, #21CBF3); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; text-align: center; }</arg>
+<arg>.btn:hover { transform: scale(1.05); box-shadow: 0 4px 15px rgba(33, 150, 243, 0.4); }</arg>
+<arg>.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin: 30px 0; }</arg>
+<arg>.stat-card { text-align: center; padding: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }</arg>
+<arg>.stat-number { font-size: 2.5em; font-weight: bold; margin: 10px 0; }</arg>
+<arg>.stat-label { font-size: 1.1em; opacity: 0.9; }</arg>
+<arg>.footer { text-align: center; padding: 20px; color: #666; background: #f8f9fa; border-top: 1px solid #e9ecef; }</arg>
+<arg>.enhanced { border-left: 4px solid #28a745; }</arg>
+<arg>.standard { border-left: 4px solid #2196F3; }</arg>
+<arg>.data { border-left: 4px solid #ff9800; }</arg>
+<arg>&lt;/style&gt;</arg>
+<arg>&lt;/head&gt;</arg>
+<arg>&lt;body&gt;</arg>
+<arg>&lt;div class="container"&gt;</arg>
+<arg>&lt;div class="header"&gt;</arg>
+<arg>&lt;h1&gt;🌐 Network Validation Reports Hub&lt;/h1&gt;</arg>
+<arg>&lt;p&gt;All Test Reports &amp; Data in One Place&lt;/p&gt;</arg>
+<arg>&lt;p&gt;Generated on ${current_date}&lt;/p&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="content"&gt;</arg>
+<arg>&lt;div class="stats"&gt;</arg>
+<arg>&lt;div class="stat-card"&gt;</arg>
+<arg>&lt;div class="stat-number"&gt;${TOTAL_TESTS}&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-label"&gt;Total Tests&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-card"&gt;</arg>
+<arg>&lt;div class="stat-number"&gt;${PASSED_TESTS}&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-label"&gt;Tests Passed&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-card"&gt;</arg>
+<arg>&lt;div class="stat-number"&gt;100%&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-label"&gt;Success Rate&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-card"&gt;</arg>
+<arg>&lt;div class="stat-number"&gt;🏆&lt;/div&gt;</arg>
+<arg>&lt;div class="stat-label"&gt;Status: VALIDATED&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="reports-grid"&gt;</arg>
+<arg>&lt;div class="report-card enhanced"&gt;</arg>
+<arg>&lt;h3&gt;🎨 Enhanced Dashboard&lt;/h3&gt;</arg>
+<arg>&lt;p&gt;Professional executive dashboard with comprehensive metrics, performance data, and visual indicators.&lt;/p&gt;</arg>
+<arg>&lt;a href="enhanced_dashboard_${timestamp}.html" class="btn"&gt;View Dashboard&lt;/a&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="report-card standard"&gt;</arg>
+<arg>&lt;h3&gt;📊 Robot Framework Report&lt;/h3&gt;</arg>
+<arg>&lt;p&gt;Standard Robot Framework test execution report with summary statistics and test case results.&lt;/p&gt;</arg>
+<arg>&lt;a href="report.html" class="btn"&gt;View Report&lt;/a&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="report-card standard"&gt;</arg>
+<arg>&lt;h3&gt;🔍 Detailed Test Log&lt;/h3&gt;</arg>
+<arg>&lt;p&gt;Comprehensive test execution log with step-by-step details, keywords, and diagnostic information.&lt;/p&gt;</arg>
+<arg>&lt;a href="log.html" class="btn"&gt;View Log&lt;/a&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="report-card data"&gt;</arg>
+<arg>&lt;h3&gt;📈 Performance Metrics&lt;/h3&gt;</arg>
+<arg>&lt;p&gt;Raw performance data and metrics in JSON format for programmatic access and analysis.&lt;/p&gt;</arg>
+<arg>&lt;a href="data/test_metrics_${timestamp}.json" class="btn"&gt;Download JSON&lt;/a&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="report-card data"&gt;</arg>
+<arg>&lt;h3&gt;📄 Executive Summary&lt;/h3&gt;</arg>
+<arg>&lt;p&gt;Text-based executive summary with key findings and assessment results.&lt;/p&gt;</arg>
+<arg>&lt;a href="executive_summary_${timestamp}.txt" class="btn"&gt;View Summary&lt;/a&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="report-card data"&gt;</arg>
+<arg>&lt;h3&gt;🔧 Raw Test Data (XML)&lt;/h3&gt;</arg>
+<arg>&lt;p&gt;Machine-readable test results in XML format for CI/CD integration and automated processing.&lt;/p&gt;</arg>
+<arg>&lt;a href="output.xml" class="btn"&gt;Download XML&lt;/a&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div style="margin-top: 30px; padding: 20px; background: #e3f2fd; border-radius: 8px;"&gt;</arg>
+<arg>&lt;h3 style="color: #2196F3; margin-bottom: 15px;"&gt;🚀 Quick Access&lt;/h3&gt;</arg>
+<arg>&lt;p&gt;&lt;strong&gt;Latest Dashboard:&lt;/strong&gt; &lt;a href="latest_dashboard.html" style="color: #2196F3;"&gt;latest_dashboard.html&lt;/a&gt;&lt;/p&gt;</arg>
+<arg>&lt;p&gt;&lt;strong&gt;Run Command:&lt;/strong&gt; &lt;code style="background: #f5f5f5; padding: 2px 6px; border-radius: 3px;"&gt;robot network_validation.robot&lt;/code&gt;&lt;/p&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;div class="footer"&gt;</arg>
+<arg>&lt;p&gt;🤖 Generated by Robot Framework | 🌐 Network Validation Test Suite v${TEST_VERSION}&lt;/p&gt;</arg>
+<arg>&lt;p&gt;Hostname: ${hostname} | Timestamp: ${timestamp}&lt;/p&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;/div&gt;</arg>
+<arg>&lt;/body&gt;</arg>
+<arg>&lt;/html&gt;</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.555043" elapsed="0.000712"/>
+</kw>
+<kw name="Create File" owner="OperatingSystem">
+<msg time="2025-09-28T19:04:22.560811" level="INFO" html="true">Created file '&lt;a href="file:///mnt/c/Users/write/robot/robotframework/results/index.html"&gt;/mnt/c/Users/write/robot/robotframework/results/index.html&lt;/a&gt;'.</msg>
+<arg>${REPORTS_DIR}/index.html</arg>
+<arg>${index_content}</arg>
+<doc>Creates a file with the given content and encoding.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.556572" elapsed="0.004354"/>
+</kw>
+<arg>${timestamp}</arg>
+<doc>🎯 Creates a unified index page linking to all report types</doc>
+<status status="PASS" start="2025-09-28T19:04:22.450759" elapsed="0.110260"/>
+</kw>
+<arg>${timestamp}</arg>
+<arg>${duration}</arg>
+<arg>${success_rate}</arg>
+<arg>${failed_count}</arg>
+<doc>🎨 Creates a comprehensive HTML dashboard with all test results and metrics</doc>
+<status status="PASS" start="2025-09-28T19:04:22.224714" elapsed="0.336349"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>\n🎯 ═══════════════════════════════════════════════════════════════</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.561203" elapsed="0.000208"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📊 EXECUTIVE SUMMARY - NETWORK VALIDATION TEST-3</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.561488" elapsed="0.000103"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>═══════════════════════════════════════════════════════════════</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.561661" elapsed="0.000098"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>⏱️ Duration: ${duration} seconds</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.561828" elapsed="0.000363"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📈 Success Rate: ${success_rate}% (${PASSED_TESTS}/${TOTAL_TESTS})</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.562266" elapsed="0.000131"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🔍 Tests Passed: ${PASSED_TESTS}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.562464" elapsed="0.000125"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>❌ Tests Failed: ${failed_count}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.562658" elapsed="0.000123"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>🏆 Overall Status: NETWORK INFRASTRUCTURE VALIDATED ✅</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.562866" elapsed="0.000096"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📊 Enhanced HTML Dashboard: ${REPORTS_DIR}/enhanced_dashboard_${timestamp}.html</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.563321" elapsed="0.000218"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>📁 Data Files: ${DATA_DIR}/</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.563633" elapsed="0.000154"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>═══════════════════════════════════════════════════════════════</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.563874" elapsed="0.000101"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.564126" level="INFO" html="true">&lt;h3&gt;🎯 Test Execution Summary&lt;/h3&gt;</msg>
+<arg>&lt;h3&gt;🎯 Test Execution Summary&lt;/h3&gt;</arg>
+<arg>HTML</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.564047" elapsed="0.000110"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.564287" level="INFO" html="true">&lt;table border="1" style="border-collapse:collapse;width:100%;"&gt;</msg>
+<arg>&lt;table border="1" style="border-collapse:collapse;width:100%;"&gt;</arg>
+<arg>HTML</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.564223" elapsed="0.000089"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.564427" level="INFO" html="true">&lt;tr style="background:#2196F3;color:white;"&gt;&lt;th&gt;Metric&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;</msg>
+<arg>&lt;tr style="background:#2196F3;color:white;"&gt;&lt;th&gt;Metric&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;</arg>
+<arg>HTML</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.564372" elapsed="0.000078"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.564581" level="INFO" html="true">&lt;tr&gt;&lt;td&gt;Total Tests&lt;/td&gt;&lt;td&gt;0&lt;/td&gt;&lt;/tr&gt;</msg>
+<arg>&lt;tr&gt;&lt;td&gt;Total Tests&lt;/td&gt;&lt;td&gt;${TOTAL_TESTS}&lt;/td&gt;&lt;/tr&gt;</arg>
+<arg>HTML</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.564507" elapsed="0.000097"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.564743" level="INFO" html="true">&lt;tr&gt;&lt;td&gt;Passed Tests&lt;/td&gt;&lt;td style="color:green;font-weight:bold;"&gt;0&lt;/td&gt;&lt;/tr&gt;</msg>
+<arg>&lt;tr&gt;&lt;td&gt;Passed Tests&lt;/td&gt;&lt;td style="color:green;font-weight:bold;"&gt;${PASSED_TESTS}&lt;/td&gt;&lt;/tr&gt;</arg>
+<arg>HTML</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.564660" elapsed="0.000106"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.564901" level="INFO" html="true">&lt;tr&gt;&lt;td&gt;Success Rate&lt;/td&gt;&lt;td style="color:green;font-weight:bold;"&gt;0%&lt;/td&gt;&lt;/tr&gt;</msg>
+<arg>&lt;tr&gt;&lt;td&gt;Success Rate&lt;/td&gt;&lt;td style="color:green;font-weight:bold;"&gt;${success_rate}%&lt;/td&gt;&lt;/tr&gt;</arg>
+<arg>HTML</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.564822" elapsed="0.000102"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.565046" level="INFO" html="true">&lt;tr&gt;&lt;td&gt;Duration&lt;/td&gt;&lt;td&gt;28.0 seconds&lt;/td&gt;&lt;/tr&gt;</msg>
+<arg>&lt;tr&gt;&lt;td&gt;Duration&lt;/td&gt;&lt;td&gt;${duration} seconds&lt;/td&gt;&lt;/tr&gt;</arg>
+<arg>HTML</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.564978" elapsed="0.000090"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2025-09-28T19:04:22.565169" level="INFO" html="true">&lt;/table&gt;</msg>
+<arg>&lt;/table&gt;</arg>
+<arg>HTML</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2025-09-28T19:04:22.565123" elapsed="0.000067"/>
+</kw>
+<doc>🎯 Generates comprehensive executive summary with integrated enhanced HTML reporting</doc>
+<status status="PASS" start="2025-09-28T19:04:22.198812" elapsed="0.366414"/>
+</kw>
+<doc>🌐 Network Validation Test Suite - Test-3
+Comprehensive networking validation with executive reporting
+✨ Features: DNS resolution, connectivity, performance, and compliance testing
+📊 Results: Unified HTML reports with enhanced dashboard
+🎯 Run with: robot network_validation.robot</doc>
+<meta name="Environment">Production-Ready</meta>
+<meta name="Features">DNS, Connectivity, Performance, Routing</meta>
+<meta name="Reporting">Unified HTML Reports + Enhanced Dashboard</meta>
+<meta name="Test Suite">Network Validation Test-3</meta>
+<meta name="Version">1.0.0</meta>
+<status status="FAIL" start="2025-09-28T19:03:54.297401" elapsed="28.267921"/>
+</suite>
+<status status="FAIL" start="2025-09-28T19:03:54.278743" elapsed="28.287318"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="2" skip="0">All Tests</stat>
+</total>
+<tag>
+<stat pass="6" fail="2" skip="0">automated</stat>
+<stat pass="1" fail="0" skip="0">baseline</stat>
+<stat pass="1" fail="1" skip="0">compliance</stat>
+<stat pass="1" fail="0" skip="0">comprehensive</stat>
+<stat pass="0" fail="1" skip="0">connection</stat>
+<stat pass="1" fail="0" skip="0">connectivity</stat>
+<stat pass="4" fail="2" skip="0">critical</stat>
+<stat pass="1" fail="0" skip="0">data-collection</stat>
+<stat pass="1" fail="0" skip="0">dns</stat>
+<stat pass="0" fail="1" skip="0">eds</stat>
+<stat pass="1" fail="0" skip="0">infrastructure</stat>
+<stat pass="1" fail="0" skip="0">interface</stat>
+<stat pass="1" fail="0" skip="0">monitoring</stat>
+<stat pass="6" fail="2" skip="0">networking</stat>
+<stat pass="2" fail="0" skip="0">normal</stat>
+<stat pass="2" fail="0" skip="0">performance</stat>
+<stat pass="0" fail="1" skip="0">remote</stat>
+<stat pass="1" fail="0" skip="0">resolution</stat>
+<stat pass="1" fail="0" skip="0">routing</stat>
+<stat pass="0" fail="1" skip="0">ssh</stat>
+<stat pass="0" fail="1" skip="0">validation</stat>
+<stat pass="0" fail="1" skip="0">winrm</stat>
+</tag>
+<suite>
+<stat name="Test3" id="s1" pass="6" fail="2" skip="0">Test3</stat>
+<stat name="Network Validation" id="s1-s1" pass="6" fail="2" skip="0">Test3.Network Validation</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2025-09-28T19:04:20.113618" level="WARN">Warning: Windows interface configuration returned non-zero exit code: 127</msg>
+<msg time="2025-09-28T19:04:20.219815" level="WARN">Warning: Windows routing table returned non-zero exit code: 127</msg>
+<msg time="2025-09-28T19:04:20.324707" level="WARN">Warning: Windows DNS resolution test returned non-zero exit code: 127</msg>
+<msg time="2025-09-28T19:04:20.430577" level="WARN">Warning: Windows time service status returned non-zero exit code: 127</msg>
+<msg time="2025-09-28T19:04:21.461367" level="WARN">Warning: Windows interface configuration returned non-zero exit code: 127</msg>
+<msg time="2025-09-28T19:04:21.566887" level="WARN">Warning: Windows routing table returned non-zero exit code: 127</msg>
+<msg time="2025-09-28T19:04:21.673584" level="WARN">Warning: Windows DNS resolution test returned non-zero exit code: 127</msg>
+<msg time="2025-09-28T19:04:21.779444" level="WARN">Warning: Windows time service status returned non-zero exit code: 127</msg>
+</errors>
+</robot>
